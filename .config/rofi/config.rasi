@@ -1,4 +1,4 @@
-@import "arc-red-dark.rasi"
+@import "/usr/share/rofi/themes/Arc-Dark.rasi"
 configuration {
         kb-row-up: "Up,Control+k,Control+p,ISO_Left_Tab";
         kb-remove-to-eol: "Control+Shift+e";
@@ -11,3 +11,4 @@ configuration {
         kb-remove-char-back: "BackSpace";
 }
 
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
