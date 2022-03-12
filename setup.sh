@@ -1,9 +1,14 @@
+#!/bin/sh
 
+# This script will create symlinks to this repo
 
 export gitlocation=~/github/dotfiles/.config/
 
 cd ~/.config
 for folder in `find ${gitlocation} -mindepth 1 -maxdepth 1 -type d`; do
-    echo ln -s ${folder}
+    if [ ! -e `basename ${folder}` ];  then
+        echo symlinking ${folder}
+        ln -s ${folder}
+    fi
 done
 
