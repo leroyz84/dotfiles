@@ -21,3 +21,5 @@ alias np='nano -w PKGBUILD'
 alias more=less
 alias dmenu='rofi -dmenu'
 alias mutt="neomutt"
+
+
