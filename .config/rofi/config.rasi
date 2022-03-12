@@ -1,0 +1,13 @@
+@import "/home/leroy/github/base16-helios-scheme/output/rofi/themes/base16-helios.rasi"
+configuration {
+        kb-row-up: "Up,Control+k,Control+p,ISO_Left_Tab";
+        kb-remove-to-eol: "Control+Shift+e";
+        kb-row-down: "Down,Control+j,Control+n,Shift+ISO_Left_Tab";
+        kb-accept-entry: "Control+m,Return,KP_Enter";
+
+        kb-row-down: "Down,Control+j";
+        /*kb-mode-next: "Shift+Right,Control+Tab";*/
+        kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
+        kb-remove-char-back: "BackSpace";
+}
+
