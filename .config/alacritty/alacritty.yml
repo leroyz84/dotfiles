@@ -17,11 +17,11 @@ scrolling:
 # Font configuration
 font:
   # Normal (roman) font face
-  normal:
-    family: Hack
+  #normal:
+    #family: Hack
 
   # Point size
-  size: 9.0
+  size: 7.5
 
 # Colors (Tomorrow Night)
 colors:
