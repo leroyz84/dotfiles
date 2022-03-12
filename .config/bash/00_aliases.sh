@@ -1,5 +1,4 @@
 
-alias abook='abook -C ~/.config/abook/abookrc -f ~/.config/abook/addressbook.topicus'
 
 alias getc='xsel --clipboard --output'
 alias setc='xsel --clipboard --input'
