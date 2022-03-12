@@ -1,4 +1,4 @@
-@import "/home/leroy/github/base16-helios-scheme/output/rofi/themes/base16-helios.rasi"
+@import "arc-red-dark.rasi"
 configuration {
         kb-row-up: "Up,Control+k,Control+p,ISO_Left_Tab";
         kb-remove-to-eol: "Control+Shift+e";
