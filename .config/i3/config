@@ -35,8 +35,7 @@ include ~/.config/i3/conf.d/scratchpad
 include ~/.config/i3/conf.d/monitor/config
 
 #machine specific
-include ~/.config/i3/conf.d/`hostnamectl hostname`
-include ~/.config/i3/conf.d/`hostnamectl hostname`.secret
+include ~/.config/i3/conf.d/machines/`hostnamectl hostname`*
 
 bindsym $mod+grave exec ~/scripts/screensaver.sh
 #exec_always killall sxhkd && sxhkd
