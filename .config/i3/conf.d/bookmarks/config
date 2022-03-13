@@ -1,0 +1,5 @@
+# this needs rofi and #terminal set
+bindsym $mod+i exec bash ~/.config/i3/conf.d/bookmarks/bookmarks.sh
+bindsym $mod+Shift+i exec --no-startup-id $terminal --class bookmarks -e bash ~/.config/i3/conf.d/bookmarks/bookmarks.sh -e
+
+for_window [instance="bookmarks"] floating enable

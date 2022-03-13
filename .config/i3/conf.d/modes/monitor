@@ -1,0 +1,14 @@
+#################
+#    DISPLAY    #
+#################
+
+set $display display: (c)clone (s) single monitorig (t) triplehead (d) dualhead
+
+mode "$display" {
+  bindsym m exec xrandr --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+#bindsym $mod+m mode "$display"

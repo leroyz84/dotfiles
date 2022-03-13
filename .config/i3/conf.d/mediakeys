@@ -1,0 +1,14 @@
+# Volume, mut
+# needs pamixer
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pamixer --get-mute && pamixer -u || pamixer -m
+
+# playpause
+# needs playerctl
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+
+# backlight controls, needs xbacklight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5

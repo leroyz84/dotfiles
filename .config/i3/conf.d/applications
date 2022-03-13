@@ -1,0 +1,17 @@
+
+#browser
+bindsym $mod+w exec chromium
+bindsym $mod+shift+w exec luakit
+
+#explorer
+bindsym $mod+e exec --no-startup-id $terminal --title 'vifm' -e 'vifm'
+bindsym $mod+shift+e exec --no-startup-id $terminal --title 'ranger' -e 'ranger'
+
+bindsym $mod+n exec --no-startup-id rofi -show window
+
+#SoundCloud
+assign[class="ChromiumBrowser" instance="soundcloud" ] $ws10
+
+#NoSoN
+assign [class="io.github.janbar.noson"] $ws10
+for_window [class="Gnome-calculator" ] floating enable

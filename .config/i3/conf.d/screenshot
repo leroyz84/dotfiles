@@ -1,0 +1,2 @@
+
+bindsym Ctrl+Shift+P exec --no-startup-id maim --select | xclip -selection clipboard -t image/png

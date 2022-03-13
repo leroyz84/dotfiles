@@ -1,0 +1,4 @@
+# Background
+exec_always --no-startup-id feh --bg-fill ~/Pictures/background.jpg
+exec --no-startup-id parcellite
+
