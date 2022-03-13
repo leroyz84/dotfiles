@@ -2,3 +2,12 @@
 exec_always --no-startup-id feh --bg-fill ~/Pictures/background.jpg
 exec --no-startup-id parcellite
 
+#sddm fix
+exec --no-startup-id xsetroot -solid "#222222"
+
+#background
+exec_always --no-startup-id feh --bg-fill ~/Pictures/background.jpg
+
+#compositer
+exec picom
+
