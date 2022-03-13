@@ -8,7 +8,6 @@ set $alt Mod1
 #set $terminal termite
 set $terminal alacritty
 
-
 # workspaces
 set $ws1 "1 >_"
 set $ws2 "2 dev"
@@ -20,6 +19,8 @@ set $ws7 "7 chat"
 set $ws8 "8 office"
 set $ws9 "9 music"
 set $ws10 "10 prive"
+
+font pango:Droid Sans Mono 10
 
 include ~/.config/i3/conf.d/applications
 include ~/.config/i3/conf.d/bookmarks/config
