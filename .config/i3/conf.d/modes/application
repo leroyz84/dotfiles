@@ -1,0 +1,19 @@
+
+mode "Application Launcher" {
+
+    bindsym c exec gnome-calculator; mode "default"
+
+
+    bindsym f exec $terminal -t vifm -e vifm; mode "default"
+    bindsym k exec keyhub
+    bindsym n exec $terminal -t newsboat -e newsboat ; mode "default"
+    bindsym m exec evolution; [class="Evolution"] focus; mode "default"
+    #bindsym M exec evolution; [class="Evolution"] focus; mode "default"
+    bindsym m exec $terminal -t mutt -e neomutt ; mode "default"
+    bindsym s exec slack; [class="Slack"] focus; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+bindsym $mod+o mode "Application Launcher"

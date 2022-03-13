@@ -1,0 +1,2 @@
+bindsym $mod+m exec bash ~/.config/i3/conf.d/monitor/i3-monitor.sh
+

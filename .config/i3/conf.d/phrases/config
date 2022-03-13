@@ -1,0 +1,2 @@
+# this needs rofi 
+bindsym $mod+p exec bash ~/.config/i3/conf.d/phrases/phrases.sh

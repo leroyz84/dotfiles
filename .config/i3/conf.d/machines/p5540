@@ -1,0 +1,5 @@
+
+#Keyhub plugin
+for_window [class="ChromiumBrowser" instance="keyhub" ] floating enable
+for_window [class="ChromiumBrowser" instance="keyhub" ] resize set 1350 900
+for_window [class="ChromiumBrowser" instance="keyhub" ] move position center

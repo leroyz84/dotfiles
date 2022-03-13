@@ -1,0 +1,14 @@
+# Polkit Agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Network Manager Applet
+exec --no-startup-id /usr/bin/nm-applet
+
+# swap caps lock and escape
+exec_always --no-startup-id setxkbmap -option caps:escape
+
+# faster keys
+exec_always --no-startup-id xset r rate 250 75
+
+# Redshift
+exec --no-startup-id /usr/bin/redshift -l 52.20:6.29
