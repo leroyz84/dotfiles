@@ -26,8 +26,7 @@ include ~/.config/i3/conf.d/applications
 include ~/.config/i3/conf.d/bookmarks/config
 include ~/.config/i3/conf.d/colors
 include ~/.config/i3/conf.d/mediakeys
-include ~/.config/i3/conf.d/modes/application
-include ~/.config/i3/conf.d/modes/monitor
+include ~/.config/i3/conf.d/modes/*
 include ~/.config/i3/conf.d/phrases/config
 include ~/.config/i3/conf.d/screenshot
 include ~/.config/i3/conf.d/screenshot
