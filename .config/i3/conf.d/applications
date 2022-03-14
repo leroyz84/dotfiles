@@ -1,6 +1,6 @@
 
 #browser
-bindsym $mod+w exec chromium
+bindsym $mod+w exec chromium https:///www.google.nl
 bindsym $mod+shift+w exec luakit
 
 #explorer
@@ -10,7 +10,7 @@ bindsym $mod+shift+e exec --no-startup-id $terminal --title 'ranger' -e 'ranger'
 bindsym $mod+n exec --no-startup-id rofi -show window
 
 #SoundCloud
-assign[class="ChromiumBrowser" instance="soundcloud" ] $ws10
+assign[class="ChromiumBrowser" instance="soundcloud" ] $ws9
 
 #NoSoN
 assign [class="io.github.janbar.noson"] $ws10

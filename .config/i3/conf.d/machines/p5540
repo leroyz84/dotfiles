@@ -1,5 +1,11 @@
 
 #Keyhub plugin
-for_window [class="ChromiumBrowser" instance="keyhub" ] floating enable
-for_window [class="ChromiumBrowser" instance="keyhub" ] resize set 1350 900
-for_window [class="ChromiumBrowser" instance="keyhub" ] move position center
+#for_window [class="ChromiumBrowser" instance="keyhub" ] floating enable
+#for_window [class="ChromiumBrowser" instance="keyhub" ] resize set 1350 900
+#for_window [class="ChromiumBrowser" instance="keyhub" ] move position center
+#
+#
+
+# some sxhkd settings
+exec_always --no-startup-id killall sxhkd ; sxhkd
+

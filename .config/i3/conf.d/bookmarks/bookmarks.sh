@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # This script is written based on rofi and i3wm
 # It makes it easy so fuzzysearch my favorite bookmarks
 # e.g. ~/.config/bookmarks:
@@ -36,7 +36,7 @@ while IFS="|" read -r url comment; do
 
 done < <(sort ${config} | grep -v -e '^#')
 
-chosen=$(printf '%s\n' "${!options[@]}" | sort | rofi -width 95 -dmenu -i -markup-rows)
+chosen=$(printf '%s\n' "${!options[@]}" | sort | rofi -width 95 -dmenu -p bookmark -i -markup-rows)
 
 if [ $? -eq 0 ]; then
     url=$(printf '%s\n' "${options["${chosen}"]}" | cut -f1 -d' ')

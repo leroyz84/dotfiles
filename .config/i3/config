@@ -35,24 +35,21 @@ include ~/.config/i3/conf.d/mediakeys
 include ~/.config/i3/conf.d/modes/*
 include ~/.config/i3/conf.d/phrases/config
 include ~/.config/i3/conf.d/screenshot
-include ~/.config/i3/conf.d/screenshot
 include ~/.config/i3/conf.d/startup
 include ~/.config/i3/conf.d/scratchpad
 include ~/.config/i3/conf.d/monitor/config
+include ~/.config/i3/conf.d/screensaver/config
 
 #machine specific
 include ~/.config/i3/conf.d/machines/`hostnamectl hostname`*
-
-bindsym $mod+grave exec ~/scripts/screensaver.sh
-#exec_always killall sxhkd && sxhkd
 
 bindsym $mod+shift+apostrophe move workspace to output right
 bindsym $mod+shift+semicolon move workspace to output left
 bindsym $mod+apostrophe workspace next_on_output
 bindsym $mod+semicolon workspace prev_on_output
 
-#exec --no-startup-id /usr/bin/xautolock -corners -000 -time 10 -notify 5 -notifier ~/scripts/screensaver.notify.sh -locker ~/scripts/screensaver.sh -secure
-exec --no-startup-id /usr/bin/xautolock -corners -000 -time 10 -notify 5 -locker i3lock -secure
+# mod + tab - switch between workspaces
+bindsym $mod+Tab workspace back_and_forth
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -199,11 +196,6 @@ focus_follows_mouse no
 #Change screen
 bindsym $mod+bracketright move workspace to output right
 bindsym $mod+bracketleft move workspace to output left
-
-#Keyhub plugin
-for_window [class="ChromiumBrowser" instance="keyhub" ] floating enable
-for_window [class="ChromiumBrowser" instance="keyhub" ] resize set 1350 900
-for_window [class="ChromiumBrowser" instance="keyhub" ] move position center
 
 #Slack
 assign [class="Slack"] $ws7
