@@ -20,7 +20,13 @@ set $ws8 "8 office"
 set $ws9 "9 music"
 set $ws10 "10 prive"
 
-font pango:Droid Sans Mono 10
+font pango:Droid Sans Mono 9
+# reload the configuration file
+
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
 include ~/.config/i3/conf.d/applications
 include ~/.config/i3/conf.d/bookmarks/config
@@ -145,11 +151,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-#bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -172,9 +173,9 @@ bar {
     status_command py3status -c ~/.config/i3status/config
 
     colors {
-        background #000000
-        statusline #FFFFFF
-        separator  #666666
+        background #090909
+        statusline #EEEEEE
+        separator  #555555
 
         focused_workspace  #4C7899 #285577 #FFFFFF
         active_workspace   #333333 #222222 #FFFFFF
@@ -182,7 +183,7 @@ bar {
         urgent_workspace   #2F343A #900000 #FFFFFF
         binding_mode       #2F343A #900000 #FFFFFF
     }
-    font pango:Droid Sans Mono 10
+    font pango:Droid Sans Mono 9
 }
 
 #workspace_layout tabbed
