@@ -2,7 +2,7 @@
 #could get this var to work
 set $scr_path=~/.config/i3/conf.d/screensaver
 
-exec --no-startup-id xautolock -corners +00- -time 10 -notify 10 -notifier ~/.config/i3/conf.d/screensaver/notify.sh -locker ~/.config/i3/conf.d/screensaver/i3lock.sh
+exec --no-startup-id xautolock -corners +00- -time 10 -notify 5 -notifier ~/.config/i3/conf.d/screensaver/notify.sh -locker ~/.config/i3/conf.d/screensaver/i3lock.sh -secure
 
 bindsym $mod+Escape exec --no-startup-id ~/.config/i3/conf.d/screensaver/i3lock.sh
 bindsym $mod+Grave exec --no-startup-id ~/.config/i3/conf.d/screensaver/i3lock.sh
