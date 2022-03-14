@@ -21,7 +21,7 @@ font:
     #family: Hack
 
   # Point size
-  size: 7.5
+  size: 9
 
 # Colors (Tomorrow Night)
 colors:
