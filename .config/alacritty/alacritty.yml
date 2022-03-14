@@ -17,8 +17,8 @@ scrolling:
 # Font configuration
 font:
   # Normal (roman) font face
-  #normal:
-    #family: Hack
+  normal:
+    family:  DejaVu Sans Mono
 
   # Point size
   size: 9
