@@ -5,7 +5,7 @@ mode "Application Launcher" {
 
 
     bindsym f exec $terminal -t vifm -e vifm; mode "default"
-    bindsym k exec keyhub-console; mode "default"
+    bindsym k exec ~/scripts/keyhub-console; mode "default"
     bindsym n exec $terminal -t newsboat -e newsboat ; mode "default"
     #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
     bindsym m exec $terminal -t mutt -e neomutt ; mode "default"

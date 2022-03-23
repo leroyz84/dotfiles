@@ -1,0 +1,94 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+#
+# !!! I am using p3status, which uses the default i3status config
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "arch_updates"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "path_exists VPN"
+order += "battery all"
+order += "disk /"
+order += "external_script"
+order += "load"
+order += "memory"
+order += "volume master"
+order += "group frames"
+
+
+
+order += "tztime local"
+
+arch_updates {
+	format = "There are {pacman} updates available"
+        hide_if_zero = true
+}
+
+wireless _first_ {
+        format_up = "%essid%quality"
+        format_down = "WiFi"
+}
+
+ethernet _first_ {
+        format_up = "LAN"
+        format_down = "LAN"
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+        format = "VPN"
+        format_down = "VPN"
+
+}
+
+battery all {
+    format = "%status %percentage %remaining"
+    last_full_capacity = true
+    integer_battery_capacity = true
+
+}
+
+disk "/" {
+        format = "/ %avail"
+}
+
+external_script {
+    format = "~{output}"
+    script_path = "df -h ~ --output=avail | tail -1"
+}
+
+load {
+        format = "CPU %1min"
+}
+
+memory {
+        format = "RAM %available"
+        threshold_degraded = "1G"
+        format_degraded = "RAM < %available"
+}
+
+tztime local {
+        format = "%d %b %H:%M:%S "
+}
+
+volume master {
+   format = "Vol %volume"
+   format_muted = "Vol %volume"
+   device = "default"
+   mixer = "Master"
+   mixer_idx = 0
+   on_click 1 = "exec alactritty -e pulsemixer"
+}
+
+

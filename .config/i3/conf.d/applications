@@ -1,6 +1,6 @@
 
 #browser
-bindsym $mod+w exec chromium https:///www.google.nl
+bindsym $mod+w exec chromium ~/Documents/StartPage/index.html
 bindsym $mod+shift+w exec luakit
 
 #explorer
@@ -13,5 +13,9 @@ bindsym $mod+n exec --no-startup-id rofi -show window
 assign[class="ChromiumBrowser" instance="soundcloud" ] $ws9
 
 #NoSoN
-assign [class="io.github.janbar.noson"] $ws10
+assign [class="io.github.janbar.noson"] $ws9
 for_window [class="Gnome-calculator" ] floating enable
+
+
+#evolution to 8
+assign [class="Evolution"] $ws8
