@@ -22,4 +22,6 @@ alias more=less
 alias dmenu='rofi -dmenu'
 alias mutt="neomutt"
 
+# fuzzy search history
+alias hh='sort  ~/.bash_history  | uniq -d | fzf | sh'
 
