@@ -64,8 +64,8 @@ disk "/" {
 }
 
 external_script {
-    format = "~{output}"
-    script_path = "df -h ~ --output=avail | tail -1"
+    format = "~ {output}"
+    script_path = "df -h ~ --output=avail | tail -1 | tr -d ' '"
 }
 
 load {
