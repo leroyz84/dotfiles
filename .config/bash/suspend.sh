@@ -1,1 +1,1 @@
-alias sl='i3lock -c 000000; systemctl suspend'
+alias standby='i3lock -c 000000; systemctl suspend'
