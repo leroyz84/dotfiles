@@ -21,6 +21,7 @@ alias np='nano -w PKGBUILD'
 alias more=less
 alias dmenu='rofi -dmenu'
 alias mutt="neomutt"
+alias pm="pulsemixer"
 
 # fuzzy search history
 alias hh='sort  ~/.bash_history  | uniq -d | fzf | sh'
