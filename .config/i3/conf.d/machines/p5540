@@ -9,3 +9,5 @@
 # some sxhkd settings
 exec_always --no-startup-id killall sxhkd ; sxhkd
 
+exec --no-startup-id /usr/bin/clipit
+bindsym Ctrl+Mod1+shift+p exec --no-startup-id bash ~/scripts/default-passwd
