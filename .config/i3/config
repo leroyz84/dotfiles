@@ -36,9 +36,9 @@ include ~/.config/i3/conf.d/modes/*
 include ~/.config/i3/conf.d/phrases/config
 include ~/.config/i3/conf.d/screenshot
 include ~/.config/i3/conf.d/startup
-include ~/.config/i3/conf.d/scratchpad
 include ~/.config/i3/conf.d/monitor/config
 include ~/.config/i3/conf.d/screensaver/config
+include ~/.config/i3/conf.d/scratchpad/config
 
 #machine specific
 include ~/.config/i3/conf.d/machines/`hostnamectl hostname`*
@@ -61,6 +61,7 @@ bindsym $mod+Control+u workspace prev
 bindsym $mod+Control+d workspace next
 
 bindsym $mod+bar exec /home/leroy/scripts/toggleslackmute.sh && $refresh_i3status
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -165,6 +166,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#tray_output primary
 
 bar {
     status_command py3status -c ~/.config/i3status/config

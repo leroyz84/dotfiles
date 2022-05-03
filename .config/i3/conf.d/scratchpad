@@ -1,9 +1,0 @@
-# ScratchPad
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+s move scratchpad
-# Show the first scratchpad window
-bindsym $mod+s scratchpad show
-
-
-bindsym $mod+g exec ~/scripts/text-scratchpad
-bindsym $mod+shift+g exec ~/scripts/text-scratchpad clipboard
