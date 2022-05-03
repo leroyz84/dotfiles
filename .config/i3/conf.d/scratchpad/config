@@ -1,0 +1,12 @@
+# ScratchPad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+s move scratchpad
+# Show the first scratchpad window
+bindsym $mod+s scratchpad show
+
+
+bindsym $mod+g exec ~/.config/i3/conf.d/scratchpad/text-scratchpad.sh
+bindsym $mod+shift+g exec ~/.config/i3/conf.d/scratchpad/text-scratchpad.sh clipboard
+
+for_window [class=Alacritty instance="__text_scratchpad"] floating enable
+
