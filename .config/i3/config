@@ -35,7 +35,7 @@ include ~/.config/i3/conf.d/mediakeys
 include ~/.config/i3/conf.d/modes/*
 include ~/.config/i3/conf.d/phrases/config
 include ~/.config/i3/conf.d/screenshot
-include ~/.config/i3/conf.d/startup
+include ~/.config/i3/conf.d/startup/config
 include ~/.config/i3/conf.d/monitor/config
 include ~/.config/i3/conf.d/screensaver/config
 include ~/.config/i3/conf.d/scratchpad/config
