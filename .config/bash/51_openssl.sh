@@ -9,3 +9,9 @@ function certinfo() {
 function certparse() {
    getc | openssl x509 -noout -subject -dates -issuer
 }
+
+
+# make watch binary to understand this
+export -f certparse
+export -f certinfo
+
