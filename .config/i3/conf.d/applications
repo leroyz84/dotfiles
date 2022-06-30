@@ -19,3 +19,8 @@ for_window [class="Gnome-calculator" ] floating enable
 
 #evolution to 8
 assign [class="Evolution"] $ws8
+
+
+#Teams chat / video to 6
+assign[class="ChromiumBrowser" instance="teams.microsoft.com" ] $ws6
+
