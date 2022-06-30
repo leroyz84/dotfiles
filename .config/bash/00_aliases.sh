@@ -13,6 +13,7 @@ alias gp='git push'
 
 alias pacman='sudo pacman'
 
+alias k='kubectl'
 alias l='ls -l'
 alias ll='ls -l'
 
