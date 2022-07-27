@@ -27,6 +27,7 @@ alias cal="cal -m"
 
 # fuzzy search history
 alias hh='sort  ~/.bash_history  | uniq -d | fzf | sh'
+alias hha='cat ~/.bash-history/* | sort  | uniq -d | fzf | sh'
 alias study='cd /mnt/nas/STUDY/__OCP_4_/PEARSON_RED_HAT_OPENSHIFT_ADMINISTRATION_RED_HAT_EX280-iLLiTERATE'
 
 # sometimes screen doens't come back on...
