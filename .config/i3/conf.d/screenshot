@@ -1,2 +1,6 @@
 
 bindsym Ctrl+Shift+P exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+o exec --no-startup-id maim --select /var/tmp/screenshot.png && feh -Z --class screeny /var/tmp/screenshot.png
+
+for_window [class="screeny" ] floating enable
+

@@ -9,8 +9,8 @@ shopt -s histappend
 shopt -s expand_aliases
 
 export HISTCONTROL=ignoredups
-export HISTFILESIZE=
-export HISTSIZE=
+export HISTFILESIZE=100000
+export HISTSIZE=100000
 export PATH=$PATH:~/scripts
 
 export BROWSER=chromium

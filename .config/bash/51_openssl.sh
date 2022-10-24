@@ -8,7 +8,7 @@ function certinfo() {
     _port=443
   fi
 
-  echo "# $1"
+  echo "# $1 @ ${_port}"
   openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -dates -issuer
   echo "------- Chain info -------"
   openssl s_client -connect $1:$_port < /dev/null 2>/dev/null | grep  -e '[si]:'

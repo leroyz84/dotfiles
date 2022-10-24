@@ -12,6 +12,7 @@ alias gcm='git checkout main || git checkout master'
 alias gp='git push'
 
 alias pacman='sudo pacman'
+alias bt='bluetuith'
 
 alias k='kubectl'
 alias l='ls -l'
@@ -32,3 +33,5 @@ alias study='cd /mnt/nas/STUDY/__OCP_4_/PEARSON_RED_HAT_OPENSHIFT_ADMINISTRATION
 
 # sometimes screen doens't come back on...
 alias mm='xset -display :0.0 dpms force off ; xset -display :0.0 dpms force on'
+
+alias maintenance="cd ; ansible-playbook playbook_maintenance.yaml --vault-id financecloud@~/.ansible_vault/financecloud"

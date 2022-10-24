@@ -1,7 +1,7 @@
 
 mode "Application Launcher" {
 
-    bindsym c exec gnome-calculator; mode "default"
+    bindsym c exec galculator; mode "default"
 
 
     bindsym f exec $terminal -t vifm -e vifm; mode "default"
@@ -10,6 +10,7 @@ mode "Application Launcher" {
     #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
     bindsym m exec $terminal -t mutt -e neomutt ; mode "default"
     bindsym s exec slack; [class="Slack"] focus; mode "default"
+    bindsym t exec ~/scripts/timer.sh ;mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

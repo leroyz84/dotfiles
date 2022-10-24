@@ -60,7 +60,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 00000 --nofork
 bindsym $mod+Control+u workspace prev
 bindsym $mod+Control+d workspace next
 
-bindsym $mod+bar exec /home/leroy/scripts/toggleslackmute.sh && $refresh_i3status
+#bindsym $mod+bar exec /home/leroy/scripts/toggleslackmute.sh && $refresh_i3status
+bindsym $mod+slash exec /home/leroy/.local/bin/otpmenu --type
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -186,7 +187,7 @@ bar {
 }
 
 #workspace_layout tabbed
-for_window [class="Nemo"] floating enable
+#for_window [class="Nemo"] floating enable
 for_window [class="Galculator"] floating enable
 
 #gui-cert-check
