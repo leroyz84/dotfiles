@@ -27,6 +27,13 @@ set ifs "\n"
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
 
+
+set previewer ~/.config/lf/lf-preview.sh
+set preview true
+
+
+
+
 # use enter for shell commands
 #map <enter> shell
 #map <enter> shell
@@ -167,3 +174,33 @@ cmd bookmark_create ${{
     read ans
     echo $PWD > $LF_BOOKMARK_PATH/$ans
 }}
+
+# extract
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd zip %zip -r "$f" "$f"
+cmd tar %tar cvf "$f.tar" "$f"
+cmd targz %tar cvzf "$f.tar.gz" "$f"
+cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+
+# Archive Mappings
+map az zip
+map at tar
+map ag targz
+map ab targz
+map au unarchive
+
+map gts cd ~/SSV
+map gtd cd ~/Downloads
+map gtt cd /tmp
+# toggle hidden
+map . set hidden!
+
