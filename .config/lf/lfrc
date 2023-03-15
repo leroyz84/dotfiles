@@ -35,7 +35,7 @@ set preview true
 
 
 # use enter for shell commands
-#map <enter> shell
+map <enter> open
 map w
 map b $$SHELL
 
