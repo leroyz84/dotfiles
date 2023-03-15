@@ -36,7 +36,8 @@ set preview true
 
 # use enter for shell commands
 #map <enter> shell
-#map <enter> shell
+map w
+map b $$SHELL
 
 # execute current file (must be executable)
 map x $$f
