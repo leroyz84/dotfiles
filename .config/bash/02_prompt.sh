@@ -27,6 +27,7 @@ BWHITE='\[\e[1;37m\]'
 BGWHITE='\[\e[1;37m\]'
 
 
+
 function generate_prompt
 {
 	ret=$?

@@ -1,4 +1,5 @@
 @import "/usr/share/rofi/themes/Arc-Dark.rasi"
+
 configuration {
         kb-row-up: "Up,Control+k,Control+p";
         kb-remove-to-eol: "Control+Shift+e";

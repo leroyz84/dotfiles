@@ -5,14 +5,13 @@ set $mod Mod4
 set $alt Mod1
 
 # applications
-#set $terminal termite
 set $terminal alacritty
 
 # workspaces
 set $ws1 "1 >_"
 set $ws2 "2 dev"
 set $ws3 "3 www"
-set $ws4 "4 "
+set $ws4 "4 www"
 set $ws5 "5 tst"
 set $ws6 "6 video"
 set $ws7 "7 chat"
@@ -24,6 +23,10 @@ font pango: DejaVu Sans Mono 9
 # reload the configuration file
 
 bindsym $mod+Shift+c reload
+
+gaps inner 10
+gaps outer 10
+smart_gaps on
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -53,7 +56,8 @@ bindsym $mod+Tab workspace back_and_forth
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 00000 --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 00000 --nofork
+exec --no-startup-id xss-lock -- i3lock -c 00000 --nofork
 
 #exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 
@@ -77,7 +81,10 @@ for_window [title="^quicky-terminal$"] move center
 bindsym $mod+q kill
 
 # Rofi application launcher
-bindsym $mod+d exec --no-startup-id "rofi -modi run,drun -show drun"
+bindsym $mod+d exec --no-startup-id "rofi -modi drun -show drun"
+bindsym $mod+shift+d exec --no-startup-id rofi -show ssh -run-shell-command 'alacritty -e bash -ic "{cmd} && read"'
+
+
 
 # change focus
 bindsym $mod+h focus left
@@ -139,16 +146,16 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1 ; workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2 ; workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3 ; workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4 ; workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5 ; workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6 ; workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7 ; workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8 ; workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9 ; workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10 ; workspace number $ws10
 
 
 # resize window (you can also use the mouse for that)
@@ -167,9 +174,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#tray_output primary
 
 bar {
+    tray_output primary
     status_command py3status -c ~/.config/i3status/config
 
     colors {

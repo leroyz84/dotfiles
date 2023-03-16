@@ -3,8 +3,8 @@ bindsym $mod+w exec chromium ~/Documents/StartPage/index.html
 bindsym $mod+shift+w exec luakit
 
 #explorer
-bindsym $mod+e exec --no-startup-id $terminal --title 'vifm' -e 'vifm'
-bindsym $mod+shift+e exec --no-startup-id $terminal --title 'ranger' -e 'ranger'
+bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
+bindsym $mod+shift+e exec --no-startup-id nemo
 
 bindsym $mod+n exec --no-startup-id rofi -show window
 
@@ -22,8 +22,9 @@ assign [class="Evolution"] $ws8
 assign[class="ChromiumBrowser" instance="teams.microsoft.com" ] $ws6
 
 # Grafana monitoring to laptopscreen
+#assign[class="ChromiumBrowser" instance="grafana.topicusfinance.nl__playlists" ] output eDP-1
 assign[class="ChromiumBrowser" instance="grafana.topicusfinance.nl__playlists" ] monitoring
-assign[class="ChromiumBrowser" instance="grafana.topicusfinance.nl__playlists" ] output eDP-1
+workspace monitoring output eDP-1
 #
 # Slack to ws7
 assign[class="Slack" instance="slack" ] $ws7

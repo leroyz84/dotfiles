@@ -4,6 +4,7 @@ alias getc='xsel --clipboard --output'
 alias setc='xsel --clipboard --input'
 
 alias gg='cd $(find ~/git -maxdepth 1 | fzf)'
+alias ggl='cd $(find ~/gitlab -maxdepth 1 | fzf)'
 alias gf='cd $(dirname $(find ~/git -type f | fzf))'
 
 alias md='markdown_previewer'
@@ -27,11 +28,17 @@ alias pm="pulsemixer"
 alias cal="cal -m"
 
 # fuzzy search history
-alias hh='sort  ~/.bash_history  | uniq -d | fzf | sh'
-alias hha='cat ~/.bash-history/* | sort  | uniq -d | fzf | sh'
+alias h='sort  ~/.bash_history  | uniq -d | fzf | sh'
+alias hha='cat ~/.bash-history/* | awk "length($0) > 10" sort  | uniq -d | fzf | sh'
 alias study='cd /mnt/nas/STUDY/__OCP_4_/PEARSON_RED_HAT_OPENSHIFT_ADMINISTRATION_RED_HAT_EX280-iLLiTERATE'
 
 # sometimes screen doens't come back on...
 alias mm='xset -display :0.0 dpms force off ; xset -display :0.0 dpms force on'
 
 alias maintenance="cd ; ansible-playbook playbook_maintenance.yaml --vault-id financecloud@~/.ansible_vault/financecloud"
+
+alias micon='pactl load-module module-loopback'
+alias micoff='pactl unload-module module-loopback'
+
+
+alias fm='vifm .'

@@ -9,7 +9,7 @@ function certinfo() {
   fi
 
   echo "# $1 @ ${_port}"
-  openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -dates -issuer
+  openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -altnames -dates -issuer
   echo "------- Chain info -------"
   openssl s_client -connect $1:$_port < /dev/null 2>/dev/null | grep  -e '[si]:'
   echo "--------------------------"
@@ -33,8 +33,12 @@ function certparse() {
    getc | openssl x509 -noout -subject -dates -issuer
 }
 
+function cert() {
+   openssl x509 -noout -in $1 -text | less
+}
 
 # make watch binary to understand this
 export -f certparse
 export -f certinfo
+export -f cert
 

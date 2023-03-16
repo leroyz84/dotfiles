@@ -8,7 +8,7 @@ mode "Application Launcher" {
     bindsym k exec ~/scripts/keyhub-console; mode "default"
     bindsym n exec $terminal -t newsboat -e newsboat ; mode "default"
     #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
-    bindsym m exec $terminal -t mutt -e neomutt ; mode "default"
+    bindsym m exec $terminal -t mutt -e "neomutt"; mode "default"
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/scripts/timer.sh ;mode "default"
 

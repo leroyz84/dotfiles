@@ -8,5 +8,5 @@ bindsym $mod+s scratchpad show
 bindsym $mod+g exec ~/.config/i3/conf.d/scratchpad/text-scratchpad.sh
 bindsym $mod+shift+g exec ~/.config/i3/conf.d/scratchpad/text-scratchpad.sh clipboard
 
-for_window [class=Alacritty instance="__text_scratchpad"] floating enable
+for_window [class="__text_scratchpad" ] floating enable
 
