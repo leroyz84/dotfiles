@@ -73,20 +73,29 @@ cmd open &{{
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
+# pacman -S trash-cli
+cmd trash ${{
+	set -f
+	if hash trash-put 2>/dev/null; then
+		trash-put -v -- $fx
+	else
+		mkdir -p "$HOME"/.trash
+		mv -vi $fx "$HOME"/.trash
+	fi
+}}
 
 # define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ "$ans" = "y" ] && rm -rf $fx
-# }}
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ "$ans" = "y" ] && rm -rf $fx
+}}
 
 # use '<delete>' key for either 'trash' or 'delete' command
 map <delete> trash
-# map <delete> delete
+map X delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
@@ -199,9 +208,11 @@ map ag targz
 map ab targz
 map au unarchive
 
+map gth cd ~
 map gts cd ~/SSV
 map gtd cd ~/Downloads
 map gtc cd ~/.config
+map gtm cd /run/media/leroy
 map gtt cd /tmp
 map gtgh cd ~/github
 map gtgl cd ~/gitlab
@@ -233,6 +244,24 @@ cmd copyto ${{
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
 
+map V openfolder
 
+
+cmd openfolder ${{
+   echo $fx
+   if [ -d $fx ]; then
+     echo dir
+     # if movie files in dir; than start mpv
+     if [[ `ls -1 "$fx" | grep -i -e avi -e mp4 -e mkv ` ]]; then
+       mpv ${PWD}
+       exit
+     fi
+     # if pictures files in dir; than start feh
+     if [[ `ls -1 "$fx" | grep -i -e jpeg -e jpg -e png -e gif` ]]; then
+       feh -Z  --scale-down ${PWD}
+       exit
+     fi
+   fi
+}}
 #map o open
 
