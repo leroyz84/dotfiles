@@ -211,6 +211,7 @@ map au unarchive
 map gth cd ~
 map gts cd ~/SSV
 map gtd cd ~/Downloads
+map gtS cd ~/Study
 map gtc cd ~/.config
 map gtm cd /run/media/leroy
 map gtt cd /tmp
@@ -222,14 +223,11 @@ map . set hidden!
 map <c-r> reload
 
 map c
-#map cc push A<c-u> # new rename
-map cw # full rename
-map cW # rename without extension
-#map wI push A<c-a> # at the very beginning
-#map i push A<a-b><a-b><a-f> # before extension
-#map a push A<a-b> # after extensionkkk
-#
-#
+# foo-bar.jpeg jump word back, jump char back, delete till home
+map cc :rename; cmd-delete-home
+map cw :rename;
+map cW :rename;  cmd-word-back; cmd-left; cmd-delete-home
+
 #
 map <c-n> push $mkdir<space>
 
@@ -250,15 +248,16 @@ map V openfolder
 cmd openfolder ${{
    echo $fx
    if [ -d $fx ]; then
-     echo dir
+     echo $fx
      # if movie files in dir; than start mpv
      if [[ `ls -1 "$fx" | grep -i -e avi -e mp4 -e mkv ` ]]; then
-       mpv ${PWD}
+       mpv $fx
        exit
      fi
+
      # if pictures files in dir; than start feh
-     if [[ `ls -1 "$fx" | grep -i -e jpeg -e jpg -e png -e gif` ]]; then
-       feh -Z  --scale-down ${PWD}
+     if [[ `ls -1 "$fx" | grep -i -e jpeg -e jpg -e png -e gif ` ]]; then
+       feh -Z  --scale-down $fx
        exit
      fi
    fi
