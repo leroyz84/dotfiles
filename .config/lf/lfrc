@@ -222,11 +222,16 @@ map . set hidden!
 
 map <c-r> reload
 
-map c
 # foo-bar.jpeg jump word back, jump char back, delete till home
-map cc :rename; cmd-delete-home
-map cw :rename;
-map cW :rename;  cmd-word-back; cmd-left; cmd-delete-home
+cmd rename-base :rename;  cmd-word-back; cmd-left; cmd-delete-home
+cmd rename-partial :rename
+cmd rename-full :rename; cmd-delete-home
+
+map c
+map cc rename-full
+map cw rename-partial
+map cW rename-base
+
 
 #
 map <c-n> push $mkdir<space>
@@ -264,3 +269,8 @@ cmd openfolder ${{
 }}
 #map o open
 
+
+cmd follow_link %{{
+  lf -remote "send ${id} select '$(readlink $f)'"
+}}
+map gL follow_link
