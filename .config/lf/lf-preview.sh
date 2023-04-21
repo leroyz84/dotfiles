@@ -7,6 +7,7 @@ case "$1" in
     *.tar|*.tar.gz|*.tgz) echo "Tar contents:" ; tar tf "$1"  ;;
     *.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1";;
     *.pem|*.crt) openssl x509 -in "$1" -noout -subject -issuer -dates -ext subjectAltName ;;
+    *.sql) bat --color always  -n "$1" ;;
     *) cat -n "$1" ;;
 esac
 

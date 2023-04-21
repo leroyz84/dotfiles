@@ -1,7 +1,7 @@
 # vim: set filetype=bash:
 
-# thanks to Manjaro
-ex ()
+# thanks to Manjaro, moved ex to extract because ex exits
+extract ()
 {
   if [ -f $1 ] ; then
     case $1 in

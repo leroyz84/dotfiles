@@ -1,6 +1,6 @@
 #browser
 bindsym $mod+w exec chromium ~/Documents/StartPage/index.html
-bindsym $mod+shift+w exec luakit
+bindsym $mod+shift+w exec chromium --new-window
 
 #explorer
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'

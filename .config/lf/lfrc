@@ -113,11 +113,15 @@ cmd extract ${{
 
 # compress current file or selected files with tar and gunzip
 cmd tar ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    tar czf $1.tar.gz $1
-    rm -rf $1
+    if [ -d $f ]; then
+      echo tar cvfz `basename $fx`.tgz  -C ${PWD}  `basename $fx`
+      tar cvfz `basename $fx`.tgz  -C ${PWD}  `basename $fx`
+    else
+      echo file
+      pwd
+      echo "fx: " $fx " "
+      read
+    fi
 }}
 
 # compress current file or selected files with zip
@@ -159,10 +163,13 @@ cmd fzf_jump ${{
 map <c-f> :fzf_jump
 
 # clipboard
+
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
 cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
-map gyp :yank-path
-map gyf :yank-basename
+map y
+map yp :yank-path
+map yf :yank-basename
+map yy copy
 
 # set title on cd
 cmd on-cd &{{
@@ -196,10 +203,10 @@ cmd unarchive ${{
   esac
 }}
 
-cmd zip %zip -r "$f" "$f"
-cmd tar %tar cvf "$f.tar" "$f"
-cmd targz %tar cvzf "$f.tar.gz" "$f"
-cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
+#cmd zip %zip -r "$f" "$f"
+#cmd tar %tar cvfP "$f.tar" "$f"
+#jcmd targz %tar cvzf "$f.tar.gz" "$f"
+#cmd tarbz2 %tar cjvf "$f.tar.bz2" "$f"
 
 # Archive Mappings
 map az zip
