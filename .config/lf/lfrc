@@ -133,6 +133,12 @@ cmd zip ${{
     rm -rf $1
 }}
 
+cmd ezip ${{
+    set -f
+    zip --encrypt $1.zip $1
+}}
+
+
 
 # git stuff
 cmd git_branch ${{
@@ -211,8 +217,9 @@ cmd unarchive ${{
 # Archive Mappings
 map az zip
 map at tar
-map ag targz
-map ab targz
+map aez encyrpted zip
+#map ag targz
+#map ab targz
 map au unarchive
 
 map gth cd ~

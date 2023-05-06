@@ -6,6 +6,7 @@ export SSH_AUTH_SOCK
 #   ssh-add -vvv
 #fi
 
+#exit
 ## Instructions
 
 #mkdir -p ~/.config/systemd/user/

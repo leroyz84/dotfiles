@@ -15,7 +15,7 @@ set +e
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=100000
 export HISTSIZE=100000
-export PATH=$PATH:~/scripts
+export PATH=$PATH:~/.local/bin/
 
 export BROWSER=chromium
 export EDITOR='vim'

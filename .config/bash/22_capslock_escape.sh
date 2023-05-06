@@ -1,4 +1,4 @@
-setxkbmap -option caps:escape
+#setxkbmap -option caps:escape
 # i use a duck xs61 keyboard, make escape a tilde :)
 # is now done by qmk.
 
