@@ -1,4 +1,12 @@
 
+
+# attach or start a tmux session
+function ssh() {
+    /sbin/ssh $1 -t -- /bin/sh -c "tmux || bash "
+}
+
+
+
 # ssh agent, symlink your default key
 eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
 export SSH_AUTH_SOCK
