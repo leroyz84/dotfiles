@@ -31,6 +31,7 @@ function getcert() {
 # get certificate info from clibpboard
 function certparse() {
    getc | openssl x509 -noout -subject -dates -issuer
+   wl-paste | openssl x509 -noout -subject -dates -issuer
 }
 
 function cert() {
