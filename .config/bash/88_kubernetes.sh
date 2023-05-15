@@ -5,3 +5,5 @@ alias krs='kubectl get rs'
 alias kds='kubectl get ds'
 alias kl='kubectl get logs -f'
 alias kexe='oc rsh '
+
+source <(kubectl completion bash)
