@@ -1,7 +1,7 @@
 
 
 # attach or start a tmux session
-function ssh() {
+function ssj() {
     /sbin/ssh $1 -t -- /bin/sh -c "tmux || bash "
 }
 
