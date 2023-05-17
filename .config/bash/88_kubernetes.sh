@@ -5,5 +5,20 @@ alias krs='kubectl get rs'
 alias kds='kubectl get ds'
 alias kl='kubectl get logs -f'
 alias kexe='oc rsh '
+alias k='__k8s; kubectl'
+complete -o default -F __start_kubectl k
+
 
 source <(kubectl completion bash)
+
+__k8s()
+{
+    # Get current context
+    CONTEXT=$(kubectl config current-context)
+
+    if [ -n "$CONTEXT" ]; then
+        echo -e "\e[30;46m(k8s: ${CONTEXT})\033[0m"
+    fi
+}
+
+
