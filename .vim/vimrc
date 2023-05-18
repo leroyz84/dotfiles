@@ -23,3 +23,7 @@ set hidden
 
 let $RTP=split(&runtimepath, ',')[0]
 let $RC="$HOME/.vim/vimrc"
+
+
+" :find file, could be performance issue
+set path=.,**
