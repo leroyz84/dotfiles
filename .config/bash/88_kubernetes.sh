@@ -9,7 +9,11 @@ alias k='__k8s; kubectl'
 complete -o default -F __start_kubectl k
 
 
-source <(kubectl completion bash)
+
+# kubectl Bash completion
+if [ `which kubectl 2>/dev/null` ]; then
+	source <(kubectl completion bash)
+fi
 
 __k8s()
 {
