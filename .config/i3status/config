@@ -18,19 +18,19 @@ order += "wireless _first_"
 order += "ethernet _first_"
 order += "path_exists VPN"
 order += "battery all"
-order += "disk /"
-order += "external_script"
+#order += "disk /"
+#order += "external_script"
 order += "load"
-order += "memory"
-order += "volume master"
-order += "group frames"
+#order += "memory"
+#order += "volume master"
+#order += "group frames"
 
 
 
 order += "tztime local"
 
 arch_updates {
-	format = "There are {pacman} updates available"
+	format = "{pacman} updates available"
         hide_if_zero = true
 }
 
