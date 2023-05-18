@@ -1,2 +1,4 @@
 export LF_BOOKMARK_PATH=~/.config/lf/bookmarks
-export SSHPASS=`cat ~/.config/phrases/00-temporary-password`
+if [[ -e ~/.config/phrases/00-temporary-password ]]; then
+	export SSHPASS=`cat ~/.config/phrases/00-temporary-password`
+fi
