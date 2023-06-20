@@ -36,6 +36,10 @@ exec_always dbus-update-activation-environment
 #xwayland enable
 default_border pixel 3
 
+for_window [app_id="_text_scratchpad"] floating enable
+bindsym $mod+g exec ~/.local/bin/text-scratchpad
+bindsym $mod+shift+g exec ~/.local/bin/text-scratchpad clipboard
+
 
 # workspaces
 set $ws1 "1 >_"
