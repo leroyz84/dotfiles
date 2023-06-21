@@ -21,7 +21,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 set $terminal foot
 
 #include ~/.config/i3/conf.d/startup/config
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id foot --server
 #preload chromium?
@@ -283,7 +283,7 @@ bar {
     bindsym button4 nop
     bindsym button5 nop
 
-    status_command py3status
+    status_command  py3status
     #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
     tray_output *
 
