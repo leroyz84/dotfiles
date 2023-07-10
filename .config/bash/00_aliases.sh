@@ -3,11 +3,19 @@
 #alias getc='xsel --clipboard --output'
 #alias setc='xsel --clipboard --input'
 
+alias scale=' for i in {1..10}; do echo sway output DP-$i scale 1.7; done | sh'
 alias gg='cd $(find ~/git -maxdepth 1 | fzf)'
 alias ggl='cd $(find ~/gitlab -maxdepth 1 | fzf)'
 #alias gf='cd $(dirname $(find ~/git -type f | fzf))'
 
 #alias md='markdown_previewer'
+function vpn {
+	if [[ $1 == "off" ]]; then
+		nmcli connection down $(nmcli connection | awk '/vpn/{print $1}')
+	else
+		nmcli connection up $(nmcli connection | awk '/vpn/{print $1}')
+	fi
+}
 
 alias gcm='git checkout main || git checkout master'
 alias gp='git push'
@@ -51,6 +59,6 @@ alias tt-sync-activities='ttwatch --set-formats=TCX,GPX  --activity-store=${HOME
 alias xrandr='echo use wlr-randr'
 alias arandr='echo use wdisplays'
 function rdp() {
-     xfreerdp /u:leroy.zwakman /p:`cat ~/.config/phrases/00-temporary-password` /v:$1
+     xfreerdp /u:leroy /v:$1
 }
 alias t=tmux
