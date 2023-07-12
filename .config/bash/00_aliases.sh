@@ -59,6 +59,13 @@ alias tt-sync-activities='ttwatch --set-formats=TCX,GPX  --activity-store=${HOME
 alias xrandr='echo use wlr-randr'
 alias arandr='echo use wdisplays'
 function rdp() {
-     xfreerdp /u:leroy /v:$1
+     xfreerdp /u:leroy /v:$1 /w:1280 /h:1024 /drive:rdp,/home/leroy/rdp
 }
 alias t=tmux
+
+
+alias wg-ssv-on='wg-quick up ~/.config/wireguard/wg1.conf'
+alias wg-ssv-off='wg-quick down ~/.config/wireguard/wg1.conf'
+
+alias wg-thuis-on='wg-quick up ~/.config/wireguard/wg0.conf'
+alias wg-thuis-off='wg-quick down ~/.config/wireguard/wg0.conf'

@@ -10,7 +10,7 @@ bindsym $mod+s scratchpad show
 
 # class                 border  bground text    indicator child_border
 # class                 border  bground text    indicator child_border
-client.focused          #00FFEE #000000 #FFFFFF #4C7899   #4C7899
+client.focused          #00FFEE #000000 #FFFFFF #4C7899   #31C5FF
 client.focused_inactive #000000 #000000 #FFFFFF #484E50   #5F676A
 client.unfocused        #000000 #222222 #888888 #292D2E   #222222
 client.urgent           #000000 #900000 #FFFFFF #900000   #900000
@@ -35,8 +35,18 @@ exec_always dbus-update-activation-environment
 
 #xwayland enable
 default_border pixel 3
-
+#title_format "%title %app_id %class %shell"
 for_window [app_id="_text_scratchpad"] floating enable
+
+
+# uggly, no more data from chromium popups
+for_window [app_id="^$"] {
+    floating enable;
+    move position 1450 100;
+
+}
+#for_window [app_id="^$"] move position top right
+for_Window [class="tim-prune-GpsPrune"] floating disable
 bindsym $mod+g exec ~/.local/bin/text-scratchpad
 bindsym $mod+shift+g exec ~/.local/bin/text-scratchpad clipboard
 
@@ -67,7 +77,9 @@ bindsym $mod+w exec chromium ~/Documents/start.html
 bindsym $mod+shift+w exec chromium --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
-bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+shift+e exec --no-startup-id thunar
+#bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+n exec --no-startup-id ~/.local/bin/window-switcher.sh
 
 
 #Screenshots
@@ -99,8 +111,8 @@ bindsym $mod+control+shift+p exec   foot -e pass  show -c default/leroy.zwakman
 #bindsym $mod+bar exec /home/leroy/scripts/toggleslackmute.sh && $refresh_i3status
 bindsym $mod+slash exec /home/leroy/.local/bin/otpmenu --type
 
-exec wl-paste -t text --watch clipman store
-bindsym control+alt+h exec clipman pick --tool=wofi
+exec wl-paste --watch cliphist store
+bindsym control+alt+h exec  cliphist list | wofi --show dmenu
 
 bindsym $mod+i exec ~/.local/bin/bookmarks
 for_window [instance="bookmarks"] floating enable
@@ -111,7 +123,8 @@ bindsym $mod+Shift+i exec --no-startup-id foot --app-id=bookmarks -e ~/.local/bi
 ## Bookmarks
 # 
 
-for_window [app_id="galculator"] floating enable
+for_window [app_id="galculator"] floating enable, border normal, move position cursor
+
 
 
 mode "Application Launcher" {
