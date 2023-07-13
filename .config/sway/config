@@ -10,7 +10,7 @@ bindsym $mod+s scratchpad show
 
 # class                 border  bground text    indicator child_border
 # class                 border  bground text    indicator child_border
-client.focused          #00FFEE #000000 #FFFFFF #4C7899   #31C5FF
+client.focused          #00FFEE #000000 #FFFFFF #4C7899   #4C7899
 client.focused_inactive #000000 #000000 #FFFFFF #484E50   #5F676A
 client.unfocused        #000000 #222222 #888888 #292D2E   #222222
 client.urgent           #000000 #900000 #FFFFFF #900000   #900000
@@ -24,6 +24,9 @@ set $terminal foot
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id foot --server
+## start script
+exec_always --no-startup-id ~/.local/bin/startup.sh
+
 #preload chromium?
 exec_always /usr/bin/chromium --no-startup-window
 
@@ -35,7 +38,7 @@ exec_always dbus-update-activation-environment
 
 #xwayland enable
 default_border pixel 3
-#title_format "%title %app_id %class %shell"
+
 for_window [app_id="_text_scratchpad"] floating enable
 
 
