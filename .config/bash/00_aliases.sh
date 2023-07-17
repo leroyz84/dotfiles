@@ -18,7 +18,9 @@ function vpn {
 }
 
 alias gcm='git checkout main || git checkout master'
-alias gp='git push'
+alias gP='git push'
+alias gp='git pull'
+alias gs='git status'
 
 alias pacman='sudo pacman'
 alias bt='bluetuith'
