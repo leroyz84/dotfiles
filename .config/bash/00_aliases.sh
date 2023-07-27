@@ -1,7 +1,9 @@
 
 
 #alias getc='xsel --clipboard --output'
+alias getc='wl-paste'
 #alias setc='xsel --clipboard --input'
+alias setc='wl-copy'
 
 alias scale=' for i in {1..10}; do echo sway output DP-$i scale 1.7; done | sh'
 alias gg='cd $(find ~/git -maxdepth 1 | fzf)'
@@ -26,6 +28,7 @@ alias pacman='sudo pacman'
 alias bt='bluetuith'
 
 alias k='kubectl'
+complete -o default -F __start_kubectl k
 alias l='ls -l'
 alias ll='ls -l'
 
@@ -34,8 +37,11 @@ alias np='nano -w PKGBUILD'
 alias more=less
 alias dmenu='wofi --dmenu'
 alias mutt="neomutt"
-alias pm="pulsemixer"
+alias pm="TERM=xterm pulsemixer"
 alias cal="cal -m"
+alias v="virsh"
+#complete -o default -F _virsh_complete v
+#complete -o default -o filenames -F _virsh_complete v
 
 # fuzzy search history
 alias h='sort  ~/.bash_history  | uniq -d | fzf | sh'
