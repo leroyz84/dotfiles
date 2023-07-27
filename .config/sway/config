@@ -33,8 +33,8 @@ exec_always /usr/bin/chromium --no-startup-window
 exec_always ~/.local/bin/monitor-layout
 exec_always dbus-update-activation-environment
 
-##output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#output * bg ~/Pictures/eos_wp.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/vipe_desktop_gradient1_grey.png fill
 
 #xwayland enable
 default_border pixel 3
@@ -46,8 +46,15 @@ for_window [app_id="_text_scratchpad"] floating enable
 for_window [app_id="^$"] {
     floating enable;
     move position 1450 100;
-
 }
+
+for_window [app_id="soundcloud"]  move container to workspace number 9 music
+for_window [app_id="whatsapp"]  move container to workspace number 10 prive
+for_window [app_id="teams"]  move container to workspace number 7 chat
+for_window [app_id="mail"]  move container to workspace number 8 office
+for_window [app_id="calendar"]  move container to workspace number 8 office
+for_window [app_id="zabbix"]  move container to workspace number Monitoring
+
 #for_window [app_id="^$"] move position top right
 for_Window [class="tim-prune-GpsPrune"] floating disable
 bindsym $mod+g exec ~/.local/bin/text-scratchpad
@@ -76,7 +83,7 @@ gaps inner 3
 #smart_gaps on
 
 #include ~/.config/sway/conf.d/applications
-bindsym $mod+w exec chromium ~/Documents/start.html
+bindsym $mod+w exec chromium
 bindsym $mod+shift+w exec chromium --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
@@ -105,17 +112,17 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 #
-## Personal Scripting	
+## Personal Scripting
 #
 bindsym $mod+p exec bash ~/.local/bin/phrases
-bindsym $mod+control+shift+p exec   foot -e pass  show -c default/leroy.zwakman 
+bindsym $mod+control+shift+p exec   foot -e pass  show -c default/leroy.zwakman
 #bindsym $mod+Shift+p exec bash ~/.local/bin/otpmenu
 
 #bindsym $mod+bar exec /home/leroy/scripts/toggleslackmute.sh && $refresh_i3status
 bindsym $mod+slash exec /home/leroy/.local/bin/otpmenu --type
 
 exec wl-paste --watch cliphist store
-bindsym control+alt+h exec  cliphist list | wofi --show dmenu
+bindsym control+alt+h exec  cliphist list | wofi --show dmenu |  cliphist decode   | wl-copy
 
 bindsym $mod+i exec ~/.local/bin/bookmarks
 for_window [instance="bookmarks"] floating enable
@@ -124,7 +131,7 @@ bindsym $mod+Shift+i exec --no-startup-id foot --app-id=bookmarks -e ~/.local/bi
 
 #
 ## Bookmarks
-# 
+#
 
 for_window [app_id="galculator"] floating enable, border normal, move position cursor
 
@@ -341,7 +348,7 @@ input "type:keyboard" {
     xkb_options caps:escape
 }
 input type:touchpad {
-    tap enabled
+    tap disabled
     natural_scroll enabled
 }
 
