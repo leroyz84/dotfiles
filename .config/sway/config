@@ -142,11 +142,7 @@ mode "Application Launcher" {
     bindsym c exec galculator; mode "default"
 
 
-    bindsym k exec ~/.local/bin/keyhub-console; mode "default"
     bindsym n exec $terminal -T newsboat -e newsboat ; mode "default"
-    #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
-    bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
-    #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/.local/bin/timer ;mode "default"
 
