@@ -1,2 +1,0 @@
-set relativenumber
-syntax on
