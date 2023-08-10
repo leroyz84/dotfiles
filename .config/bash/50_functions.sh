@@ -11,7 +11,27 @@ clean_ssh () {
 	 sed -i -e '/tux.lan/d' ~/.ssh/known_hosts
 }
 
+# run p to open a tmuxp project
 function p() {
-  #tmuxp load --yes `find  ~/.config/tmuxp -name "*.yaml"  | fzf` || true
   project=`find  ~/.config/tmuxp -name "*.yaml"  | fzf` &&   tmuxp load --yes ${project}
 }
+
+# run z <watchfile>
+function  z() {
+
+	if [ -z $1 ]; then
+		echo "USAGE: z <file-to-watch>"
+	elif [ ! -e $1 ]; then
+		echo "file $1 does not exit (yet)"
+	else
+		echo -n "command to run on $1: "
+		read cmd
+		while true; do
+			echo -e "\nwaiting on $1";
+			inotifywait $1 > /dev/null 2>&1
+			clear;
+			$cmd
+		done
+	fi
+}
+
