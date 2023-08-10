@@ -2,6 +2,8 @@ set mouse=
 set ttymouse=
 " Syntax highlighting
 syntax on
+colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night
 
 " numbers with distance
 set relativenumber
