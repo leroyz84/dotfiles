@@ -38,6 +38,7 @@ alias np='nano -w PKGBUILD'
 alias more=less
 alias dmenu='wofi --dmenu'
 alias mutt="neomutt"
+
 alias pm="TERM=xterm pulsemixer"
 alias cal="cal -m"
 alias v="virsh"
@@ -47,8 +48,6 @@ alias v="virsh"
 # fuzzy search history
 alias h='sort  ~/.bash_history  | uniq -d | fzf | sh'
 alias hha='cat ~/.bash-history/* | awk "length($0) > 10" sort  | uniq -d | fzf | sh'
-alias study='cd /mnt/nas/STUDY/__OCP_4_/PEARSON_RED_HAT_OPENSHIFT_ADMINISTRATION_RED_HAT_EX280-iLLiTERATE'
-
 # sometimes screen doens't come back on...
 ##alias mm='xset -display :0.0 dpms force off ; xset -display :0.0 dpms force on'
 alias mm='swaymsg "output * power off" ; sleep 1; swaymsg "output * power on" ; sleep 1 ; swaymsg "output * power on" '
@@ -78,3 +77,8 @@ alias wg-ssv-off='wg-quick down ~/.config/wireguard/wg1.conf'
 
 alias wg-thuis-on='wg-quick up ~/.config/wireguard/wg0.conf'
 alias wg-thuis-off='wg-quick down ~/.config/wireguard/wg0.conf'
+
+
+function p() {
+  tmuxp load --yes `find  ~/.config/tmuxp -name "*.yaml"  | fzf`
+}
