@@ -9,12 +9,38 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
 
 # class                 border  bground text    indicator child_border
-# class                 border  bground text    indicator child_border
-client.focused          #00FFEE #000000 #FFFFFF #4C7899   #4C7899
-client.focused_inactive #000000 #000000 #FFFFFF #484E50   #5F676A
-client.unfocused        #000000 #222222 #888888 #292D2E   #222222
-client.urgent           #000000 #900000 #FFFFFF #900000   #900000
+client.focused          #CDFFFF #CDFFFF #FFFFFF #CDFFFF   #00BBDD
+
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+bar {
+    bindsym button4 nop
+    bindsym button5 nop
+
+    status_command  py3status
+    #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
+    tray_output *
+
+
+    colors {
+        background #090909
+        statusline #EEEEEE
+        separator  #555555
+
+    focused_workspace  #CDFFFF #007080 #CDFFFF
+    active_workspace   #CDFFFF #222222 #FFFFFF
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2F343A #CB3244 #FFFFFF
+    binding_mode       #2F343A #CA0EFF #FFFFFF
+    }
+    font pango: DejaVu Sans Mono 9
+}
+
+
+default_border pixel 3
 
 
 # applications
@@ -38,7 +64,6 @@ exec_always dbus-update-activation-environment
 output * bg ~/Pictures/vipe_desktop_gradient1_grey.png fill
 
 #xwayland enable
-default_border pixel 3
 
 for_window [app_id="_text_scratchpad"] floating enable
 
@@ -80,7 +105,7 @@ font pango: DejaVu Sans Mono 9
 
 bindsym $mod+Shift+c reload
 
-gaps inner 3
+#gaps inner 3
 #gaps outer 10
 #smart_gaps on
 
@@ -147,11 +172,9 @@ mode "Application Launcher" {
 
 
     bindsym n exec $terminal -T newsboat -e newsboat ; mode "default"
-==== BASE ====
     bindsym m exec evolution; [class="Evolution"] focus; mode "default"
     #bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
     #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
-==== BASE ====
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/.local/bin/timer ;mode "default"
 
@@ -306,29 +329,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-bar {
-    bindsym button4 nop
-    bindsym button5 nop
-
-    status_command  py3status
-    #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
-    tray_output *
-
-
-    colors {
-        background #090909
-        statusline #EEEEEE
-        separator  #555555
-
-        focused_workspace  #4C7899 #285577 #FFFFFF
-        active_workspace   #333333 #222222 #FFFFFF
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2F343A #900000 #FFFFFF
-        binding_mode       #2F343A #900000 #FFFFFF
-    }
-    font pango: DejaVu Sans Mono 9
-}
 
 #workspace_layout tabbed
 #for_window [class="Nemo"] floating enable
