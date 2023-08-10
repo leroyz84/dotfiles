@@ -19,6 +19,7 @@ function vpn {
 	fi
 }
 
+alias git='git --no-pager'
 alias gcm='git checkout main || git checkout master'
 alias gP='git push'
 alias gp='git pull'
