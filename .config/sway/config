@@ -26,6 +26,7 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id foot --server
 ## start script
 exec_always --no-startup-id ~/.local/bin/startup.sh
+exec_always rivalcfg -p 250 -s 2400
 
 #preload chromium?
 exec_always /usr/bin/chromium --no-startup-window
@@ -53,10 +54,11 @@ for_window [app_id="whatsapp"]  move container to workspace number 10 prive
 for_window [app_id="teams"]  move container to workspace number 7 chat
 for_window [app_id="mail"]  move container to workspace number 8 office
 for_window [app_id="calendar"]  move container to workspace number 8 office
+for_window [app_id="evolution"]  move container to workspace number 8 office
 for_window [app_id="zabbix"]  move container to workspace number Monitoring
 
 #for_window [app_id="^$"] move position top right
-for_Window [class="tim-prune-GpsPrune"] floating disable
+#for_Window [class="tim-prune-GpsPrune"] floating disable
 bindsym $mod+g exec ~/.local/bin/text-scratchpad
 bindsym $mod+shift+g exec ~/.local/bin/text-scratchpad clipboard
 
@@ -134,6 +136,8 @@ bindsym $mod+Shift+i exec --no-startup-id foot --app-id=bookmarks -e ~/.local/bi
 #
 
 for_window [app_id="galculator"] floating enable, border normal, move position cursor
+for_window [app_id="_text_scratchpad"] floating enable, border pixel 3, move position cursor
+#for_window [app_id="galculator"] floating enable, border normal, move position cursor
 
 
 
@@ -143,6 +147,11 @@ mode "Application Launcher" {
 
 
     bindsym n exec $terminal -T newsboat -e newsboat ; mode "default"
+==== BASE ====
+    bindsym m exec evolution; [class="Evolution"] focus; mode "default"
+    #bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
+    #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
+==== BASE ====
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/.local/bin/timer ;mode "default"
 
@@ -198,9 +207,9 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+Return exec $terminal -t quicky-terminal
-for_window [title="^quicky-terminal$"] floating enable
-for_window [title="^quicky-terminal$"] move center
+bindsym $mod+Shift+Return exec $terminal -a quicky-terminal
+for_window [app_id="^quicky-terminal$"] floating enable
+for_window [app_id="^quicky-terminal$"] move center
 
 # kill focused window
 bindsym $mod+q kill
