@@ -79,6 +79,3 @@ alias wg-thuis-on='wg-quick up ~/.config/wireguard/wg0.conf'
 alias wg-thuis-off='wg-quick down ~/.config/wireguard/wg0.conf'
 
 
-function p() {
-  tmuxp load --yes `find  ~/.config/tmuxp -name "*.yaml"  | fzf`
-}
