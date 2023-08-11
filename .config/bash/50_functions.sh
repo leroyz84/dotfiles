@@ -24,13 +24,16 @@ function  z() {
 	elif [ ! -e $1 ]; then
 		echo "file $1 does not exit (yet)"
 	else
-		echo -n "command to run on $1: "
-		read cmd
+		echo test
+		if [[ -z $z_cmd ]]; then
+			echo -n "command to run on $1: "
+			read z_cmd
+		fi
 		while true; do
 			echo -e "\nwaiting on $1";
 			inotifywait $1 > /dev/null 2>&1
 			clear;
-			$cmd
+			$_cmd
 		done
 	fi
 }
