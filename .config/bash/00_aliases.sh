@@ -8,6 +8,8 @@ alias setc='wl-copy'
 alias scale=' for i in {1..10}; do echo sway output DP-$i scale 1.7; done | sh'
 alias gg='cd $(find ~/git -maxdepth 1 | fzf)'
 alias ggl='cd $(find ~/gitlab -maxdepth 1 | fzf)'
+alias ggh='cd $(find ~/github -maxdepth 1 | fzf)'
+alias dot='cd ~/github/dotfiles/'
 #alias gf='cd $(dirname $(find ~/git -type f | fzf))'
 
 #alias md='markdown_previewer'
