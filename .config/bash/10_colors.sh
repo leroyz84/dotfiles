@@ -84,4 +84,9 @@ export GREP_OPTIONS='--color=auto' # GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+function color256() {
+	for i in {0..255}; do
+		printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
+	done
+}
 
