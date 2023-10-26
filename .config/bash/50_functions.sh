@@ -33,7 +33,7 @@ function  z() {
 			echo -e "\nwaiting on $1";
 			inotifywait $1 > /dev/null 2>&1
 			clear;
-			$_cmd
+			$z_cmd
 		done
 	fi
 }
