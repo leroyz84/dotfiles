@@ -66,7 +66,7 @@ exec_always ~/.local/bin/monitor-layout
 exec_always dbus-update-activation-environment
 
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/vipe_desktop_gradient1_grey.png fill
+#output * bg ~/Pictures/vipe_desktop_gradient1_grey.png fill
 
 #xwayland enable
 
