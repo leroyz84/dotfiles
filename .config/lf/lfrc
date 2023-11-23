@@ -269,7 +269,7 @@ cmd openfolder ${{
    if [ -d $fx ]; then
      echo $fx
      # if movie files in dir; than start mpv
-     if [[ `ls -1 "$fx" | grep -i -e avi -e mp4 -e mkv ` ]]; then
+     if [[ `ls -1 "$fx" | grep -i -e avi -e mov -e mp4 -e mkv ` ]]; then
        mpv $fx
        exit
      fi
