@@ -13,14 +13,6 @@ alias dot='cd ~/github/dotfiles/'
 #alias gf='cd $(dirname $(find ~/git -type f | fzf))'
 
 #alias md='markdown_previewer'
-function vpn {
-	if [[ $1 == "off" ]]; then
-		nmcli connection down $(nmcli connection | awk '/vpn/{print $1}' | head -1)
-	else
-		pass -c vpn.bcnexxt.com/leroy
-		nmcli connection up --ask $(nmcli connection | awk '/vpn/{print $1}' | head -1)
-	fi
-}
 
 alias git='git --no-pager'
 alias gcm='git checkout main || git checkout master'
