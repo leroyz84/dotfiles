@@ -37,6 +37,7 @@ set preview true
 
 # use enter for shell commands
 map <enter> open
+#map l bat "$f"
 map w
 map b $$SHELL
 
@@ -141,17 +142,17 @@ cmd ezip ${{
 
 
 # git stuff
-cmd git_branch ${{
-    git branch | fzf | xargs git checkout
-    pwd_shell=$(pwd)
-    lf -remote "send $id updir"
-    lf -remote "send $id cd \"$pwd_shell\""
-}}
-map gb :git_branch
-#map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}
-map gs ${{clear; git status; echo "press ENTER"; read ENTER}}
-map gl ${{clear; git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit}}
-
+#cmd git_branch ${{
+#    git branch | fzf | xargs git checkout
+#    pwd_shell=$(pwd)
+#    lf -remote "send $id updir"
+#    lf -remote "send $id cd \"$pwd_shell\""
+#}}
+#map gb :git_branch
+##map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}
+#map gs ${{clear; git status; echo "press ENTER"; read ENTER}}
+#map gl ${{clear; git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit}}
+#
 #fzf
 map f $vim $(fzf)
 
@@ -240,11 +241,14 @@ map <c-r> reload
 cmd rename-base :rename;  cmd-word-back; cmd-left; cmd-delete-home
 cmd rename-partial :rename
 cmd rename-full :rename; cmd-delete-home
+cmd rename-clear :rename; cmd-home; cmd-delete-end
 
 map c
-map cc rename-full
-map cw rename-partial
+map cc rename-partial
+map cw rename-full
 map cW rename-base
+
+map C rename-clear
 
 
 #

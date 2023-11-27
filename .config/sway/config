@@ -9,16 +9,17 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
 
 # class                 border  bground text    indicator child_border
-client.focused          #CDFFFF #CDFFFF #FFFFFF #CDFFFF   #00BBDD
-
+client.focused          #00BBDD #335577 #FFFFFF #CDCD00   #00BBDD
 client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 bar {
-    bindsym button4 nop
-    bindsym button5 nop
+    #bindsym button4 nop
+    #bindsym button5 nop
+        bindcode 273 ContextMenu
+        bindsym BTN_RIGHT ContextMenu
 
     status_command  py3status
     #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
@@ -40,7 +41,11 @@ bar {
 }
 
 
-default_border pixel 3
+#default_border normal 1
+default_border pixel 1
+
+#for_window [title="^.*"] title_format ""
+#default_floating_border normal 0
 
 
 # applications
@@ -115,8 +120,8 @@ bindsym $mod+shift+w exec chromium --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
 bindsym $mod+shift+e exec --no-startup-id thunar
-#bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
-bindsym $mod+n exec --no-startup-id ~/.local/bin/window-switcher.sh
+bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+shift+n exec --no-startup-id ~/.local/bin/window-switcher.sh
 
 
 #Screenshots
@@ -212,7 +217,9 @@ bindsym $mod+Tab workspace back_and_forth
 exec swayidle -w \
 	timeout 500 'swaylock -f' \
 	timeout 1000 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on"'
+	resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f'
+
 # we don't want a screensaver during full screen chromium
 for_window [class="Chromium"] inhibit_idle fullscreen
 # wayland version
@@ -238,7 +245,7 @@ for_window [app_id="^quicky-terminal$"] move center
 bindsym $mod+q kill
 
 # Rofi application launcher
-bindsym $mod+d exec --no-startup-id "wofi --modi drun --show drun"
+bindsym $mod+d exec --no-startup-id "wofi -i --modi drun --show drun"
 #bindsym $mod+shift+d exec --no-startup-id wofi --show ssh -run-shell-command 'alacritty -e bash -ic "{cmd} && read"'
 
 # change focus

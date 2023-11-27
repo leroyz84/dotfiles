@@ -38,3 +38,8 @@ function  z() {
 	fi
 }
 
+title () {
+  echo -ne "\e]0;"
+  echo -n "$@"
+  echo -ne "\a"
+}

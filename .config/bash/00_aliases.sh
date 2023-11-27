@@ -15,9 +15,10 @@ alias dot='cd ~/github/dotfiles/'
 #alias md='markdown_previewer'
 function vpn {
 	if [[ $1 == "off" ]]; then
-		nmcli connection down $(nmcli connection | awk '/vpn/{print $1}')
+		nmcli connection down $(nmcli connection | awk '/vpn/{print $1}' | head -1)
 	else
-		nmcli connection up $(nmcli connection | awk '/vpn/{print $1}')
+		pass -c vpn.bcnexxt.com/leroy
+		nmcli connection up --ask $(nmcli connection | awk '/vpn/{print $1}' | head -1)
 	fi
 }
 
@@ -25,6 +26,7 @@ alias git='git --no-pager'
 alias gcm='git checkout main || git checkout master'
 alias gP='git push'
 alias gp='git pull'
+alias gd='git diff'
 alias gs='git status'
 
 alias pacman='sudo pacman'
@@ -44,6 +46,7 @@ alias mutt="neomutt"
 alias pm="TERM=xterm pulsemixer"
 alias cal="cal -m"
 alias v="virsh"
+#alias iftop="iftop -i wlan0 -B -P"
 #complete -o default -F _virsh_complete v
 #complete -o default -o filenames -F _virsh_complete v
 
@@ -71,7 +74,7 @@ alias arandr='echo use wdisplays'
 function rdp() {
      xfreerdp /u:leroy /v:$1 /w:1280 /h:1024 /drive:rdp,/home/leroy/rdp
 }
-alias t=tmux
+alias t=title
 
 
 alias wg-ssv-on='wg-quick up ~/.config/wireguard/wg1.conf'
