@@ -71,6 +71,10 @@ exec_always dbus-update-activation-environment
 #xwayland enable
 
 for_window [app_id="_text_scratchpad"] floating enable
+#for_window [app_id="chromium"] border none
+for_window [app_id="chromium"] font pango: monospace 0.001
+
+
 
 
 # uggly, no more data from chromium popups
