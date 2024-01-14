@@ -59,7 +59,7 @@ alias micoff='pactl unload-module module-loopback'
 #
 # yay -S ttwatch
 alias tt-update-gps='ttwatch --update-gps'
-alias tt-sync-activities='ttwatch --set-formats=TCX,GPX  --activity-store=${HOME}/TomTom/ --get-activities --update-gps'
+alias tt-sync-activities='ttwatch --set-formats=TCX,GPX  --activity-store=${HOME}/TomTom/ --get-activities '
 
 alias xrandr='echo use wlr-randr'
 alias arandr='echo use wdisplays'
