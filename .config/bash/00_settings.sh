@@ -17,6 +17,6 @@ export HISTFILESIZE=100000
 export HISTSIZE=100000
 export PATH=$PATH:~/.local/bin/
 
-export BROWSER=chromium
+#export BROWSER=chromium
 export EDITOR='vim'
 export VISUAL='vim'
