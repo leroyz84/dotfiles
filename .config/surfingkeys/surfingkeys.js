@@ -15,6 +15,9 @@ if (window.location.origin === "https://mail.google.com") {
     api.unmap('k');
 }
 
+api.unmapAllExcept(['yy'], /atlassian.net/);
+
+
 //disable keys in jira
 url = /jira/
 api.unmap(".", url); // actions
