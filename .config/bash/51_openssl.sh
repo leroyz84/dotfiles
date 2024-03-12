@@ -9,7 +9,7 @@ function certinfo() {
   fi
 
   echo "# $1 @ ${_port}"
-  openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -altnames -dates -issuer
+  openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -dates -issuer
   echo "------- Chain info -------"
   openssl s_client -connect $1:$_port < /dev/null 2>/dev/null | grep  -e '[si]:'
   echo "--------------------------"
@@ -23,6 +23,7 @@ function getcert() {
     _port=443
   fi
 
+
   echo "# $1"
   openssl s_client -connect $1:$_port  2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
 
@@ -30,7 +31,7 @@ function getcert() {
 
 # get certificate info from clibpboard
 function certparse() {
-   wl-paste | openssl x509 -noout -subject -dates -issuer
+   wl-paste | openssl x509 -noout -subject -dates -issuer -in /dev/stdin
 }
 
 function cert() {
