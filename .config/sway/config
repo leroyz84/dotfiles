@@ -60,7 +60,7 @@ exec_always --no-startup-id ~/.local/bin/startup.sh
 exec_always rivalcfg -p 250 -s 2400
 
 #preload chromium?
-exec_always /usr/bin/chromium --no-startup-window
+#exec_always /usr/bin/chromium --no-startup-window
 
 exec_always ~/.local/bin/monitor-layout
 exec_always dbus-update-activation-environment
@@ -71,10 +71,7 @@ exec_always dbus-update-activation-environment
 #xwayland enable
 
 for_window [app_id="_text_scratchpad"] floating enable
-#for_window [app_id="chromium"] border none
-for_window [app_id="chromium"] font pango: monospace 0.001
-
-
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 
 # uggly, no more data from chromium popups
@@ -119,8 +116,9 @@ bindsym $mod+Shift+c reload
 #smart_gaps on
 
 #include ~/.config/sway/conf.d/applications
-bindsym $mod+w exec chromium
-bindsym $mod+shift+w exec chromium --new-window
+set $browser "/usr/bin/chromium"
+bindsym $mod+w exec $browser
+bindsym $mod+shift+w exec $browser  --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
 bindsym $mod+shift+e exec --no-startup-id thunar
