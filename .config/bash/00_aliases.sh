@@ -68,11 +68,9 @@ function rdp() {
 }
 alias t=title
 
-
 alias wg-ssv-on='wg-quick up ~/.config/wireguard/wg1.conf'
 alias wg-ssv-off='wg-quick down ~/.config/wireguard/wg1.conf'
 
 alias wg-thuis-on='wg-quick up ~/.config/wireguard/wg0.conf'
 alias wg-thuis-off='wg-quick down ~/.config/wireguard/wg0.conf'
-
 
