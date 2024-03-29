@@ -20,14 +20,15 @@ function p() {
 function  z() {
 
 	if [ -z $1 ]; then
-		echo "USAGE: z <file-to-watch>"
+		echo "USAGE: z <file-to-watch> <command>"
 	elif [ ! -e $1 ]; then
 		echo "file $1 does not exit (yet)"
 	else
-		echo test
-		if [[ -z $z_cmd ]]; then
+		if [[ -z $2 ]]; then
 			echo -n "command to run on $1: "
 			read z_cmd
+        else
+            $z_cmd = $2
 		fi
 		while true; do
 			echo -e "\nwaiting on $1";
