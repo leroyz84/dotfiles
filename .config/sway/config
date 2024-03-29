@@ -41,8 +41,8 @@ bar {
 }
 
 
-#default_border normal 1
-default_border pixel 1
+default_border normal 1
+#default_border pixel 1
 
 #for_window [title="^.*"] title_format ""
 #default_floating_border normal 0
@@ -83,10 +83,9 @@ for_window [app_id="^$"] {
 for_window [app_id="soundcloud"]  move container to workspace number 9 music
 for_window [app_id="whatsapp"]  move container to workspace number 10 prive
 for_window [app_id="teams"]  move container to workspace number 7 chat
-for_window [app_id="mail"]  move container to workspace number 8 office
-for_window [app_id="calendar"]  move container to workspace number 8 office
-for_window [app_id="evolution"]  move container to workspace number 8 office
-for_window [app_id="zabbix"]  move container to workspace number Monitoring
+for_window [app_id="mail"]  move container to workspace number 8 mail
+for_window [app_id="calendar"]  move container to workspace number 8 mail
+for_window [app_id="evolution"]  move container to workspace number 8 mail
 
 #for_window [app_id="^$"] move position top right
 #for_Window [class="tim-prune-GpsPrune"] floating disable
@@ -95,16 +94,16 @@ bindsym $mod+shift+g exec ~/.local/bin/text-scratchpad clipboard
 
 
 # workspaces
-set $ws1 "1 >_"
-set $ws2 "2 dev"
-set $ws3 "3 www"
-set $ws4 "4 www"
-set $ws5 "5 tst"
-set $ws6 "6 video"
-set $ws7 "7 chat"
-set $ws8 "8 office"
-set $ws9 "9 music"
-set $ws10 "10 prive"
+set $ws1 1 cli
+set $ws2 2 dev
+set $ws3 3 www1
+set $ws4 4 www2
+set $ws5 5 tst
+set $ws6 6 video
+set $ws7 7 chat
+set $ws8 8 mail
+set $ws9 9 music
+set $ws10 10 prive
 
 font pango: DejaVu Sans Mono 9
 # reload the configuration file
@@ -297,24 +296,30 @@ bindsym $mod+c focus child
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 
+set $workroom M_
+bindsym $mod+F1 set $$workroom M
+bindsym $mod+F2 set $$workroom A
+bindsym $mod+F3 set $$workroom B
+bindsym $mod+F3 set $$workroom C
+
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace $$workroom_$ws1
+bindsym $mod+2 workspace $$workroom_$ws2
+bindsym $mod+3 workspace $$workroom_$ws3
+bindsym $mod+4 workspace $$workroom_$ws4
+bindsym $mod+5 workspace $$workroom_$ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1 ; workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2 ; workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3 ; workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4 ; workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5 ; workspace number $ws5
+bindsym $mod+Shift+1 move container to workspace number $ws1 ; workspace number $$workroom_$ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2 ; workspace number $$workroom_$ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3 ; workspace number $$workroom_$ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4 ; workspace number $$workroom_$ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5 ; workspace number $$workroom_$ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6 ; workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7 ; workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8 ; workspace number $ws8
@@ -337,6 +342,27 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "CUSTOMER" {
+
+        bindsym 1 mode default, workspace "C_1"
+        bindsym 2 mode default, workspace "C_2"
+        bindsym 3 mode default, workspace "C_3"
+        bindsym 4 mode default, workspace "C_4"
+        bindsym 5 mode default, workspace "C_5"
+        bindsym 6 mode default, workspace "C_6"
+        bindsym 7 mode default, workspace "C_7"
+        bindsym 8 mode default, workspace "C_8"
+        bindsym 9 mode default, workspace "C_9"
+        bindsym 0 mode default, workspace "C_0"
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+
+}
+
+bindsym F12 mode "CUSTOMER"
 
 
 #workspace_layout tabbed
@@ -366,3 +392,23 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+mode "layouts"  {
+    # One nice thing about modes is that a mnemonic exists among the
+    # available keys, e.g. these three have matching initial letters.
+    bindsym d layout default
+    bindsym s layout stacking
+    bindsym t layout tabbed
+
+    # Doh, no obvious mnemonic, f => sdft contiguous => one region.
+    bindsym f layout toggle split
+
+    # Pivot bindings. An experiment by EllaTheCat.
+    # With A focused, change the column AB into the r_ow AB.
+    bindsym r mode "default", \
+            focus down, split h, focus up, move down, move left;
+    # With A focused, change the row AB into the c_olumn AB.
+    bindsym c mode "default", \
+            focus right, split v, focus left, move right, move up ;
+
+    bindsym space mode "default"
+}
