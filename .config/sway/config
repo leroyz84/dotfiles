@@ -121,8 +121,8 @@ bindsym $mod+shift+w exec $browser  --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
 bindsym $mod+shift+e exec --no-startup-id thunar
-bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
-bindsym $mod+shift+n exec --no-startup-id ~/.local/bin/window-switcher.sh
+bindsym $mod+shift+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+n exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh
 
 
 #Screenshots
