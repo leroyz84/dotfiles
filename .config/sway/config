@@ -80,6 +80,7 @@ for_window [app_id="^$"] {
     move position 1450 100;
 }
 
+
 for_window [app_id="soundcloud"]  move container to workspace number 9 music
 for_window [app_id="whatsapp"]  move container to workspace number 10 prive
 for_window [app_id="teams"]  move container to workspace number 7 chat
@@ -297,10 +298,10 @@ bindsym $mod+c focus child
 # We use variables to avoid repeating the names in multiple places.
 
 set $workroom M
-bindsym $mod+F1 set $$workroom M
-bindsym $mod+F2 set $$workroom A
-bindsym $mod+F3 set $$workroom B
-bindsym $mod+F4 set $$workroom C
+bindsym $mod+F1 set $$workroom A; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+F2 set $$workroom B; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+F3 set $$workroom C; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+F4 set $$workroom M; exec echo $$workroom > /var/tmp/workroom
 
 # switch to workspace
 bindsym $mod+1 workspace $$workroom_$ws1
@@ -313,6 +314,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $$workroom_$ws1 ; workspace $$workroom_$ws1
