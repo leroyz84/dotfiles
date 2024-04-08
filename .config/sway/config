@@ -57,29 +57,22 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id foot --server
 ## start script
 exec_always --no-startup-id ~/.local/bin/startup.sh
+exec_always ~/.local/bin/monitor-layout
 exec_always rivalcfg -p 250 -s 2400
 
-#preload chromium?
-#exec_always /usr/bin/chromium --no-startup-window
 
-exec_always ~/.local/bin/monitor-layout
 exec_always dbus-update-activation-environment
 
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#output * bg ~/Pictures/vipe_desktop_gradient1_grey.png fill
-
-#xwayland enable
-
 for_window [app_id="_text_scratchpad"] floating enable
-for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+for_window [app_id="org.keepassxc.KeePassXC"]  move container to workspace KP
+bindsym $mod+F12 workspace KP
 
 
 # uggly, no more data from chromium popups
-for_window [app_id="^$"] {
-    floating enable;
-    move position 1450 100;
-}
-
+#for_window [app_id="^$"] {
+#    floating enable;
+#    move position 1450 100;
+#}
 
 for_window [app_id="soundcloud"]  move container to workspace number 9 music
 for_window [app_id="whatsapp"]  move container to workspace number 10 prive
@@ -122,8 +115,9 @@ bindsym $mod+shift+w exec $browser  --new-window
 
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
 bindsym $mod+shift+e exec --no-startup-id thunar
-bindsym $mod+shift+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
-bindsym $mod+n exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh
+#bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+m exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh
 
 
 #Screenshots
@@ -316,7 +310,6 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $$workroom_$ws1 ; workspace $$workroom_$ws1
 bindsym $mod+Shift+2 move container to workspace $$workroom_$ws2 ; workspace $$workroom_$ws2
@@ -365,7 +358,6 @@ mode "CUSTOMER" {
 
 }
 
-#bindsym F12 mode "CUSTOMER"
 
 
 #workspace_layout tabbed
