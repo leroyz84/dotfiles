@@ -116,7 +116,7 @@ bindsym $mod+shift+w exec $browser  --new-window
 bindsym $mod+e exec --no-startup-id $terminal --title 'lf' -e 'lf'
 bindsym $mod+shift+e exec --no-startup-id thunar
 #bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
-bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
+bindsym $mod+n exec --no-startup-id ~/.config/sway/scripts/window-switcher.sh
 bindsym $mod+m exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh
 
 
@@ -237,6 +237,8 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+Return exec $terminal -a quicky-terminal
 for_window [app_id="^quicky-terminal$"] floating enable
 for_window [app_id="^quicky-terminal$"] move center
+
+bindsym $mod+Shift+Escape exec $terminal -e btop -a btop
 
 # kill focused window
 bindsym $mod+q kill
