@@ -6,14 +6,14 @@
 #  bash completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
-clean_ssh () {
-	 sed -i -e '/dev.local/d' ~/.ssh/known_hosts
-	 sed -i -e '/tux.lan/d' ~/.ssh/known_hosts
-}
-
 # run p to open a tmuxp project
 function p() {
   project=`find  ~/.config/tmuxp -name "*.yaml"  | fzf` &&   tmuxp load --yes ${project}
+}
+
+# run pe to edit tmnux projects
+function pe() {
+  vim ~/.config/tmuxp
 }
 
 # run z <watchfile>
