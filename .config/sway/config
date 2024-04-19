@@ -6,6 +6,9 @@ set $mod Mod4
 set $alt Mod1
 set $refresh_i3status exec killall -USR1 py3status
 
+bindswitch --locked lid:on  output eDP-1 disable
+bindswitch --locked lid:off output eDP-1 enable
+
 # workspaces
 set $ws1 1 cli_1
 set $ws2 2 cli_2
@@ -62,10 +65,12 @@ client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 bar {
-    #bindsym button4 nop
-    #bindsym button5 nop
-        bindcode 273 ContextMenu
-        bindsym BTN_RIGHT ContextMenu
+    # diable vertical scrolling
+    bindsym button4 nop
+    bindsym button5 nop
+
+    bindcode 273 ContextMenu
+    bindsym BTN_RIGHT ContextMenu
 
     status_command  py3status
     #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
@@ -164,15 +169,14 @@ bindsym Ctrl+Shift+o exec --no-startup-id grim -g "$(slurp)" /var/tmp/screenshot
 
 #include ~/.config/i3/conf.d/modes/*
 
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 # && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 #&& $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pamixer --get-mute && pamixer -u || pamixer -m
+bindsym --locked XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 # && $refresh_i3status
+bindsym --locked XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 #&& $refresh_i3status
+bindsym --locked XF86AudioMute exec --no-startup-id pamixer --get-mute && pamixer -u || pamixer -m
 
 # backlight controls, needs xbacklight
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym --locked XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
 
 #
 ## Personal Scripting
