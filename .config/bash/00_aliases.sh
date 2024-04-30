@@ -36,7 +36,7 @@ alias dmenu='wofi --dmenu'
 alias mutt="neomutt"
 
 alias pm="TERM=xterm pulsemixer"
-alias cal="cal -m"
+alias cal="cal -m -3"
 alias v="virsh"
 #alias iftop="iftop -i wlan0 -B -P"
 #complete -o default -F _virsh_complete v
