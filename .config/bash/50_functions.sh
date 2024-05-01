@@ -33,6 +33,7 @@ function  z() {
 		while true; do
 			echo -e "\nwaiting on $1";
 			inotifywait $1 > /dev/null 2>&1
+            sleep .1
 			clear;
 			$z_cmd
 		done
