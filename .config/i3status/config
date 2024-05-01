@@ -14,7 +14,7 @@ general {
 }
 
 #order += "external_script timew"
-order += "external_script workroom"
+#order += "external_script workroom"
 order += "arch_updates"
 order += "wireless _first_"
 order += "ethernet _first_"
@@ -78,15 +78,15 @@ disk "/" {
     on_click 1 = "exec lf"
 }
 
-external_script timew {
-    format = "{output}"
-    script_path = "timew | head -1"
-}
+#external_script timew {
+#    format = "{output}"
+#    script_path = "timew | head -1"
+#}
 
-external_script workroom {
-    format = "ROOM {output}"
-    script_path = "head -1 /var/tmp/workroom || M "
-}
+#external_script workroom {
+#    format = "ROOM {output}"
+#    script_path = "head -1 /var/tmp/workroom || M "
+#}
 
 load {
         format = "CPU %1min"
