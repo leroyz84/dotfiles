@@ -16,10 +16,12 @@ alias dot='cd ~/github/dotfiles/'
 
 alias git='git --no-pager'
 alias gcm='git checkout main || git checkout master'
+alias gc='git checkout'
 alias gP='git push'
 alias gp='git pull'
 alias gd='git diff'
 alias gs='git status'
+alias m='swaymsg rename workspace to '
 
 alias pacman='sudo pacman'
 alias bt='bluetuith'
