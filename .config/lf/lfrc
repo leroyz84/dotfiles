@@ -226,6 +226,7 @@ map au unarchive
 map gth cd ~
 map gts cd ~/SSV
 map gtd cd ~/Downloads
+map gtb cd ~/Books/
 map gtS cd ~/Study
 map gtc cd ~/.config
 map gtm cd /run/media/leroy
