@@ -8,6 +8,9 @@ set $refresh_i3status exec killall -USR1 py3status
 
 bindswitch --locked lid:on  output eDP-1 disable
 bindswitch --locked lid:off output eDP-1 enable
+bindswitch tablet:on exec squeekboard &
+bindswitch tablet:off exec pkill -f squeekboard
+
 
 # workspaces
 set $ws1 1 cli_1
