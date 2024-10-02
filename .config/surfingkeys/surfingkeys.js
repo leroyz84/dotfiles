@@ -9,6 +9,7 @@ api.iunmap(":");
 //show mode
 settings.showModeStatus=true;
 
+// api.unmap('f');
 // disable keys in gmail
 if (window.location.origin === "https://mail.google.com") {
     api.unmap('j');
@@ -16,19 +17,11 @@ if (window.location.origin === "https://mail.google.com") {
 }
 
 api.unmapAllExcept(['yy'], /atlassian.net/);
+api.unmapAllExcept(['yy'], /office.com/);
+api.unmapAllExcept(['yy'], /whatsapp.com/);
 
 
 //disable keys in jira
-url = /jira/
-api.unmap(".", url); // actions
-api.unmap("a", url); // assign
-api.unmap("c", url); // create
-api.unmap("e", url); // edit
-api.unmap("m", url); // comment
-api.unmap("i", url); // assign to me
-api.unmap("?", url); // help
-api.unmap("-", url); // toggle swimlanes
-
 settings.omnibarPosition="middle";
 // don't know
 //settings.richHintsForKeystroke=true;
