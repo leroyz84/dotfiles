@@ -35,7 +35,7 @@ function  z() {
 			inotifywait $1 > /dev/null 2>&1
             sleep .1
 			clear;
-			$z_cmd
+			$z_cmd $1
 		done
 	fi
 }
