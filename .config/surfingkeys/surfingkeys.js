@@ -6,7 +6,15 @@ settings.stealFocusOnLoad = false;
 // Disable emoji
 api.iunmap(":");
 
+ // press comma twice to leave current input box.
+api.imap(',,', "<Esc>");
+
+
+// don't use marks
+api.unmap('m');
+//
 //show mode
+//u
 settings.showModeStatus=true;
 
 // api.unmap('f');
@@ -15,6 +23,7 @@ if (window.location.origin === "https://mail.google.com") {
     api.unmap('j');
     api.unmap('k');
 }
+
 
 api.unmapAllExcept(['yy'], /atlassian.net/);
 api.unmapAllExcept(['yy'], /office.com/);
