@@ -11,6 +11,10 @@
 general {
         colors = true
         interval = 5
+      markup = "pango"
+	color_good = "#00cc00"
+	color_degraded = "#cccc00"
+	color_bad = "#cc0000"
 }
 
 #order += "external_script timew"
@@ -22,7 +26,7 @@ order += "ethernet _first_"
 order += "path_exists VPN"
 order += "path_exists WG0"
 order += "path_exists WG1"
-order += "battery all"
+order += "battery_level"
 order += "disk /"
 order += "load"
 order += "memory"
@@ -40,48 +44,59 @@ arch_updates {
 
 wireless _first_ {
         format_up = "%essid%quality"
-        format_down = "WiFi"
+        format_down = "<span foreground='#999999'>WiFi</span>"
 }
 
 ethernet _first_ {
-        format_up = "LAN"
-        format_down = "LAN"
+        format_up = "<span foreground='#FFFFFF'>LAN</span>"
+        format_down = "<span foreground='#999999'>LAN</span>"
 }
 
 path_exists VPN {
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
         path = "/proc/sys/net/ipv4/conf/tun0"
-        format = "VPN"
-        format_down = "VPN"
+        format = VPN
+        color_bad = '#999999'
+        color_good = '#99ff99'
 }
 
 path_exists WG0 {
         path = "/proc/sys/net/ipv4/conf/wg0"
         format = "WG0"
-        format_down = "WG0"
+        color_bad = '#999999'
+        color_good = '#99ff99'
 }
 
 path_exists WG1 {
         path = "/proc/sys/net/ipv4/conf/wg1"
         format = "WG1"
-        format_down = "WG1"
+        color_bad = '#999999'
+        color_good = '#99ff99'
 }
 
-battery all {
-    format = "%status %percentage %remaining"
-    last_full_capacity = true
+battery_level {
+    format = "{percent}%{time_remaining}"
+    hide_seconds = true
+    #last_full_capacity = true
     integer_battery_capacity = true
+    color_good = '#00CC00'
+    color_bad = '#CC0000'
+    color_degraded = '#CCCC00'
+    color_charging = '#00CCCC'
+    notify_low_level = true
+    threshold_degraded = 40
+    threshold_bad = 20
 
 }
 
 disk "/" {
     format = "/ %avail"
-    on_click 1 = "exec lf"
+    on_click 1 = "exec thunar"
 }
 
 external_script cpu_mode {
-    format = "{output}"
     script_path = "cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor | head -1"
+    format = "<span foreground='#999999'>{output}</span>"
 }
 
 external_script workroom {
@@ -90,17 +105,20 @@ external_script workroom {
 }
 
 load {
-        format = "CPU %1min"
+    format = "<span foreground='#999999'>CPU %1min</span>"
 }
 
 memory {
-        format = "RAM %available"
+    format = ""
+        format = "<span foreground='#999999'>RAM %available</span>"
         threshold_degraded = "1G"
         format_degraded = "RAM < %available"
 }
 
 tztime local {
-        format = "%d %b %H:%M:%S "
+    format = "<span foreground='#6666dd'>%time</span>"
+    #format_time = "%l:%M"
+    format_time = "%d %b %H:%M:%S "
 }
 
 volume master {
