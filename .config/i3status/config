@@ -75,17 +75,18 @@ path_exists WG1 {
 }
 
 battery_level {
+
     format = "{percent}%{time_remaining}"
     hide_seconds = true
-    #last_full_capacity = true
     integer_battery_capacity = true
     color_good = '#00CC00'
     color_bad = '#CC0000'
     color_degraded = '#CCCC00'
     color_charging = '#00CCCC'
+
     notify_low_level = true
-    threshold_degraded = 40
-    threshold_bad = 20
+    threshold_degraded = 30
+    threshold_bad = 15
 
 }
 
