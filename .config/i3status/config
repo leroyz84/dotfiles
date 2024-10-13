@@ -76,7 +76,7 @@ path_exists WG1 {
 
 battery_level {
 
-    format = "{percent}%{time_remaining}"
+    format = "BAT {percent}%{time_remaining}"
     hide_seconds = true
     integer_battery_capacity = true
     color_good = '#00CC00'
