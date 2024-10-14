@@ -26,8 +26,9 @@ if (window.location.origin === "https://mail.google.com") {
 
 
 api.unmapAllExcept(['yy'], /atlassian.net/);
-api.unmapAllExcept(['yy'], /office.com/);
-api.unmapAllExcept(['yy'], /whatsapp.com/);
+api.unmap('/office.com/');
+api.unmap('/whatsapp.com/');
+api.unmap('/docs.google.com/');
 
 
 //disable keys in jira
