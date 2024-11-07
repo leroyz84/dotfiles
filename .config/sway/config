@@ -155,7 +155,7 @@ bindsym $mod+shift+e exec --no-startup-id thunar
 #bindsym $mod+n exec --no-startup-id ~/.local/bin/wofiwindowswitcher.py
 bindsym $mod+n exec --no-startup-id ~/.config/sway/scripts/window-switcher.sh
 bindsym $mod+m exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh
-bindsym $mod+shift+m exec --no-startup-id ~/.config/sway/scripts/create-workspace.sh
+bindsym $mod+shift+m exec --no-startup-id ~/.config/sway/scripts/workspace-switcher.sh rename
 
 
 #Screenshots

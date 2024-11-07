@@ -2,7 +2,8 @@
 
 ## This script reads open workspace names
 
-swaymsg -t get_tree | \
+if [ -z $1 ]; then
+    swaymsg -t get_tree | \
     jq -r '.nodes | .[] | .nodes  | .[] | select(.name != null) | "\(.name?)"' | \
     grep -v __i3_scratch | \
          wofi -d -p "Select workspace" -H 400 -W 800 -d -i | {
@@ -11,6 +12,15 @@ swaymsg -t get_tree | \
            swaymsg workspace "$id"
            #swaymsg "[con_id=$id]" focus
        }
+else
+         wofi -d -p "new workspace name" -H 400 -W 800 -d -i | {
+           read -r id
+           echo $id
+           swaymsg rename workspace to "$id"
+           #swaymsg "[con_id=$id]" focus
+       }
+fi
+
 exit
 
 ## old code
