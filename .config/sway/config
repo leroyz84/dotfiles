@@ -10,7 +10,7 @@ bindswitch --locked lid:on  output eDP-1 disable
 bindswitch --locked lid:off output eDP-1 enable
 bindswitch tablet:on exec squeekboard &
 bindswitch tablet:off exec pkill -f squeekboard
-
+focus_follows_mouse no
 
 # workspaces
 set $ws1 1 cli_1
@@ -213,9 +213,11 @@ mode "Application Launcher" {
     bindsym c exec galculator; mode "default"
 
 
+    bindsym k workspace KP; exec keepassxc -platform wayland ; mode "default"
     bindsym n exec $terminal -T newsboat -e newsboat ; mode "default"
-    bindsym m exec evolution; [class="Evolution"] focus; mode "default"
-    #bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
+    bindsym m exec chromium --app-id="mail" --new-window --app="https://outlook.office.com/mail/"; mode "default"
+    #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
+   #bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
     #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/.local/bin/timer ;mode "default"
@@ -252,10 +254,10 @@ bindsym $mod+Tab workspace back_and_forth
 #exec --no-start-id xss-lock --transfer-sleep-lock -- i3lock -c 00000 --nofork
 #exec --no-startup-id xss-lock -- i3lock -c 00000 --nofork
 exec swayidle -w \
-	timeout 500 'swaylock -f' \
-	timeout 1000 'swaymsg "output * power off"' \
+	timeout 300 'swaylock -f' \
+	timeout 600 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"' \
-        before-sleep 'swaylock -f'
+    before-sleep 'swaylock -f'
 
 # we don't want a screensaver during full screen chromium
 for_window [class="Chromium"] inhibit_idle fullscreen
@@ -299,10 +301,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # resisze focused container
-bindsym $mod+Ctrl+h resize shrink width 2 px or 2 ppt
-bindsym $mod+Ctrl+j resize grow height 2 px or 2 ppt
-bindsym $mod+Ctrl+k resize shrink height 2 px or 2 ppt
-bindsym $mod+Ctrl+l resize grow width 2 px or 2 ppt
+#bindsym $mod+Ctrl+h resize shrink width 2 px or 2 ppt
+#bindsym $mod+Ctrl+j resize grow height 2 px or 2 ppt
+#bindsym $mod+Ctrl+k resize shrink height 2 px or 2 ppt
+#bindsym $mod+Ctrl+l resize grow width 2 px or 2 ppt
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -322,13 +324,13 @@ bindsym $mod+u layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-bindsym $mod+c focus child
+#bindsym $mod+a focus parent
+#
+## focus the child container
+#bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -338,10 +340,10 @@ bindsym $mod+c focus child
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 10
-        bindsym j resize grow height 10
-        bindsym k resize shrink height 10
-        bindsym l resize grow width 10 px
+        bindsym h resize shrink width 5
+        bindsym j resize grow height 5
+        bindsym k resize shrink height 5
+        bindsym l resize grow width 5
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -380,7 +382,7 @@ for_window [class="Galculator"] floating enable
 #for_window [class="Gcr-viewer"] floating enable
 
 #Do not focus window on mouse hover
-focus_follows_mouse no
+#focus_follows_mouse no
 
 #Change screen
 bindsym $mod+bracketright move workspace to output right
@@ -389,11 +391,12 @@ bindsym $mod+bracketleft move workspace to output left
 #Slack
 assign [class="Slack"] $ws7
 for_window [class="Slack"] layout focus
-focus_on_window_activation focus
+#focus_on_window_activation focus
 
 input "type:keyboard" {
     xkb_options caps:escape
 }
+
 input type:touchpad {
     tap disabled
     natural_scroll enabled
