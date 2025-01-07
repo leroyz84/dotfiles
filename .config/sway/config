@@ -101,7 +101,7 @@ set $terminal foot
 #include ~/.config/i3/conf.d/startup/config
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/dunst
-exec --no-startup-id /usr/bin/rot8
+#exec --no-startup-id /usr/bin/rot8
 exec --no-startup-id foot --server
 ## start script
 exec_always --no-startup-id ~/.local/bin/startup.sh
