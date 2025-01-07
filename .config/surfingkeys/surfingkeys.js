@@ -7,11 +7,15 @@ settings.stealFocusOnLoad = false;
 api.iunmap(":");
 
  // press comma twice to leave current input box.
-api.imap(',,', "<Esc>");
+//api.imap(',,', "<Esc>");
 
 
 // don't use marks
 api.unmap('m');
+// I use history
+api.unmap('<Ctrl-h>');
+// I use Downloads
+api.unmap('<Ctrl-j>');
 //
 //show mode
 //u
