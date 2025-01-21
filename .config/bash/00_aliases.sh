@@ -3,7 +3,9 @@
 #alias getc='xsel --clipboard --output'
 alias getc='wl-paste'
 #alias setc='xsel --clipboard --input'
-alias setc='wl-copy'
+# Somehow certs cannot paste through wayland, but wl-paste worked. this is a 'workaround'
+alias setc='wl-copy --type text/plain'
+
 
 alias scale=' for i in {1..10}; do echo sway output DP-$i scale 1.7; done | sh'
 alias gg='cd $(find ~/git -maxdepth 1 | fzf)'
