@@ -16,14 +16,18 @@ api.unmap('m');
 api.unmap('<Ctrl-h>');
 // I use Downloads
 api.unmap('<Ctrl-j>');
+
+// Ctrl I is annoying
+api.unmap('<Ctrl-i>');
 //
 //show mode
 //u
 settings.showModeStatus=true;
 
-// api.unmap('f');
 // disable keys in gmail
+//api.unmap('mail.google.com');
 if (window.location.origin === "https://mail.google.com") {
+    api.unmap('f');
     api.unmap('j');
     api.unmap('k');
 }
