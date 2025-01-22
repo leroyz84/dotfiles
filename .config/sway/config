@@ -67,6 +67,8 @@ bar {
 
     bindcode 273 ContextMenu
     bindsym BTN_RIGHT ContextMenu
+mode dock
+ position bottom
 
     status_command  py3status
     #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
