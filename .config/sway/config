@@ -98,13 +98,17 @@ default_border normal 1
 
 
 # applications
-set $terminal foot
+#set $terminal foot
+set $terminal alacritty
 
 #include ~/.config/i3/conf.d/startup/config
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/dunst
 #exec --no-startup-id /usr/bin/rot8
-exec --no-startup-id foot --server
+
+# foot has sometimes issues with not escapign control seq, making tpyo's
+# exec --no-startup-id foot --server
+
 ## start script
 exec_always --no-startup-id ~/.local/bin/startup.sh
 exec_always ~/.local/bin/monitor-layout
@@ -182,7 +186,6 @@ bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
 ## Personal Scripting
 #
 bindsym $mod+p exec bash ~/.local/bin/phrases
-#bindsym $mod+control+shift+p exec   foot -e pass  show -c default/leroy.zwakman
 bindsym control+shift+escape exec foot --title btop -a fl_btop -e btop
 #bindsym $mod+Shift+p exec bash ~/.local/bin/otpmenu
 
@@ -198,8 +201,6 @@ for_window [instance="bookmarks"] floating enable
 for_window [instance="bookmarks"] floating enable
 for_window [app_id="bookmarks"] floating enable
 for_window [app_id="fl_btop"] floating enable
-bindsym $mod+Shift+i exec --no-startup-id foot --app-id=bookmarks -e ~/.local/bin/bookmarks -e
-
 #
 ## Bookmarks
 #

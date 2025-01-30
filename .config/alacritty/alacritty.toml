@@ -25,6 +25,9 @@ action = "SemanticRightEnd"
 key = "E"
 mode = "Vi|~Search"
 
+[selection]
+save_to_clipboard = false
+
 [general]
 live_config_reload = true
 
@@ -44,7 +47,7 @@ shape = "Block"
 #TERM = "xterm-256color"
 #
 [font]
-size = 12
+size = 10
 #
 [font.normal]
 family = "Monospace"
