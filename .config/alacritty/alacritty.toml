@@ -6,7 +6,7 @@ mods = "Control|Shift"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
-key = "Return"
+key = "n"
 mods = "Control|Shift"
 
 [[keyboard.bindings]]
