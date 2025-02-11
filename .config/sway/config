@@ -13,16 +13,16 @@ bindswitch tablet:off exec pkill -f squeekboard
 focus_follows_mouse no
 
 # workspaces
-set $ws1 1 cli_1
-set $ws2 2 cli_2
-set $ws3 3 www_3
-set $ws4 4 www_4
-set $ws5 5 test_5
-set $ws6 6 test_6
-set $ws7 7 conf
-set $ws8 8 mail
-set $ws9 9 music
-set $ws10 10 prive
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -98,8 +98,8 @@ default_border normal 1
 
 
 # applications
-#set $terminal foot
-set $terminal alacritty
+set $terminal foot
+#set $terminal alacritty
 
 #include ~/.config/i3/conf.d/startup/config
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -118,22 +118,23 @@ exec_always rivalcfg -p 250 -s 2400
 exec_always dbus-update-activation-environment
 
 for_window [app_id="_text_scratchpad"] floating enable
+
 for_window [app_id="org.keepassxc.KeePassXC"]  move container to workspace KP
-bindsym $mod+F12 workspace KP
+#bindsym $mod+F12 workspace KP
 
+for_window [app_id="mail"]  move container to workspace email
+#Ibindsym $mod+F11 workspace email
 
+for_window [app_id="teams"]  move container to workspace number $ws7
 # uggly, no more data from chromium popups
 #for_window [app_id="^$"] {
 #    floating enable;
 #    move position 1450 100;
 #}
 
-for_window [app_id="soundcloud"]  move container to workspace number $ws9
-for_window [app_id="whatsapp"]  move container to workspace number $ws10
-for_window [app_id="teams"]  move container to workspace number $ws7
-for_window [app_id="mail"]  move container to workspace number $ws8
-for_window [app_id="calendar"]  move container to workspace number $ws8
-for_window [app_id="evolution"]  move container to workspace number $ws8
+for_window [app_id="soundcloud"]  move container to workspace Music
+for_window [app_id="whatsapp"]  move container to workspace WhatsApp
+for_window [app_id="evolution"]  move container to workspace Evolution
 
 #for_window [app_id="^$"] move position top right
 #for_Window [class="tim-prune-GpsPrune"] floating disable
@@ -217,8 +218,9 @@ mode "Application Launcher" {
 
 
     bindsym k workspace KP; exec keepassxc -platform wayland ; mode "default"
-    bindsym n exec $terminal -T newsboat -e newsboat ; mode "default"
-    bindsym m exec chromium --app-id="mail" --new-window --app="https://outlook.office.com/mail/"; mode "default"
+    bindsym n workspace Newsboat; exec $terminal -T newsboat -e newsboat ; mode "default"
+    bindsym m workspace email; exec swaymsg \[app_id="mail"\] focus || exec chromium --app-id="mail" --new-window --app="https://outlook.office.com/mail/"; mode "default"
+    bindsym w workspace WhatsApp; exec swaymsg \[app_id="whatsapp"\] focus || exec chromium --app-id="whatsapp" --new-window --app="https://web.whatsapp.com/"; mode "default"
     #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
    #bindsym m exec $terminal -T mutt -e neomutt ; mode "default"
     #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
