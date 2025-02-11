@@ -217,7 +217,7 @@ mode "Application Launcher" {
     bindsym c exec galculator; mode "default"
 
 
-    bindsym k workspace KP; exec keepassxc -platform wayland ; mode "default"
+    bindsym k workspace KP; exec ~/.local/bin/keepass ; mode "default"
     bindsym n workspace Newsboat; exec $terminal -T newsboat -e newsboat ; mode "default"
     bindsym m workspace email; exec swaymsg \[app_id="mail"\] focus || exec chromium --app-id="mail" --new-window --app="https://outlook.office.com/mail/"; mode "default"
     bindsym w workspace WhatsApp; exec swaymsg \[app_id="whatsapp"\] focus || exec chromium --app-id="whatsapp" --new-window --app="https://web.whatsapp.com/"; mode "default"
