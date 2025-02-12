@@ -403,27 +403,6 @@ input "type:keyboard" {
 }
 
 input type:touchpad {
-    tap disabled
+    tap enabled
     natural_scroll enabled
-}
-
-mode "layouts"  {
-    # One nice thing about modes is that a mnemonic exists among the
-    # available keys, e.g. these three have matching initial letters.
-    bindsym d layout default
-    bindsym s layout stacking
-    bindsym t layout tabbed
-
-    # Doh, no obvious mnemonic, f => sdft contiguous => one region.
-    bindsym f layout toggle split
-
-    # Pivot bindings. An experiment by EllaTheCat.
-    # With A focused, change the column AB into the r_ow AB.
-    bindsym r mode "default", \
-            focus down, split h, focus up, move down, move left;
-    # With A focused, change the row AB into the c_olumn AB.
-    bindsym c mode "default", \
-            focus right, split v, focus left, move right, move up ;
-
-    bindsym space mode "default"
 }
