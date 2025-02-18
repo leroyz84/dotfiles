@@ -35,7 +35,7 @@ order += "memory"
 #order += "group frames"
 
 external_script ident {
-    script_path = "export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket; ssh-add -l | wc -l"
+    script_path = "export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket; ssh-add -l | grep -v 'no ident' | wc -l"
     format = "<span foreground='#999999'> identitities {output}</span>"
     on_click 1 = "export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket; ssh-add -L | grep -v leroy | ssh-add -d -"
 }
