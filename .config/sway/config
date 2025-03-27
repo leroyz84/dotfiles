@@ -123,6 +123,7 @@ for_window [app_id="org.keepassxc.KeePassXC"]  move container to workspace KP
 #bindsym $mod+F12 workspace KP
 
 for_window [app_id="mail"]  move container to workspace email
+for_window [app_id="chrome-music.youtube.com__-Default"]  move container to workspace music
 #Ibindsym $mod+F11 workspace email
 
 for_window [app_id="teams"]  move container to workspace number $ws7
@@ -133,8 +134,10 @@ for_window [app_id="teams"]  move container to workspace number $ws7
 #}
 
 for_window [app_id="soundcloud"]  move container to workspace Music
+for_window [app_id="youtube-music"]  move container to workspace Music
 for_window [app_id="whatsapp"]  move container to workspace WhatsApp
 for_window [app_id="evolution"]  move container to workspace Evolution
+for_window [app_id="calendar"]  move container to workspace agenda
 
 #for_window [app_id="^$"] move position top right
 #for_Window [class="tim-prune-GpsPrune"] floating disable
@@ -403,6 +406,6 @@ input "type:keyboard" {
 }
 
 input type:touchpad {
-    tap enabled
+    tap disabled
     natural_scroll enabled
 }
