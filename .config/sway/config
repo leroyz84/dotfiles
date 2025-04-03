@@ -222,6 +222,7 @@ mode "Application Launcher" {
 
     bindsym k workspace KP; exec ~/.local/bin/keepass ; mode "default"
     bindsym n workspace Newsboat; exec $terminal -T newsboat -e newsboat ; mode "default"
+    bindsym v workspace Virt; exec /usr/bin/virt-manage ; mode "default"
     bindsym m workspace email; exec swaymsg \[app_id="mail"\] focus || exec chromium --app-id="mail" --new-window --app="https://outlook.office.com/mail/"; mode "default"
     bindsym w workspace WhatsApp; exec swaymsg \[app_id="whatsapp"\] focus || exec chromium --app-id="whatsapp" --new-window --app="https://web.whatsapp.com/"; mode "default"
     #bindsym m exec evolution; [class="Evolution"] focus; mode "default"
@@ -263,7 +264,7 @@ bindsym $mod+Tab workspace back_and_forth
 #exec --no-startup-id xss-lock -- i3lock -c 00000 --nofork
 exec swayidle -w \
 	timeout 300 'swaylock -f' \
-	timeout 600 'swaymsg "output * power off"' \
+	timeout 1800 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f'
 
