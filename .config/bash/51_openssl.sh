@@ -2,30 +2,29 @@
 # request certificate from https endpoint and show info
 function certinfo() {
 
-  if [[ "$1" == *":"* ]]; then
-    _port=$( echo $1 | cut -f2 -d':')
-  else
-    _port=443
-  fi
+    if [[ "$1" =~ ^([a-zA-Z0-9.-]+):([0-9]+)$ ]]; then
+        _host=$1
+    else
+        _host=$1:443
+    fi
 
-  echo "# $1 @ ${_port}"
-  openssl s_client -connect $1:$_port </dev/null 2>/dev/null| openssl x509 -noout -subject -dates -issuer
-  echo "------- Chain info -------"
-  openssl s_client -connect $1:$_port < /dev/null 2>/dev/null | grep  -e '[si]:'
-  echo "--------------------------"
+    echo openssl s_client -connect $_host
+    openssl s_client -connect $_host </dev/null 2>/dev/null| openssl x509 -noout -subject -dates -issuer
+    echo "------- Chain info -------"
+    openssl s_client -connect $_host < /dev/null 2>/dev/null | grep  -e '[si]:'
+    echo "--------------------------"
 }
 
 function getcert() {
 
-  if [[ "$1" == *":"* ]]; then
-    _port=$( echo $1 | cut -f2 -d':')
-  else
-    _port=443
-  fi
+    if [[ "$1" =~ ^([a-zA-Z0-9.-]+):([0-9]+)$ ]]; then
+        _host=$1
+    else
+        _host=$1:443
+    fi
 
-
-  echo "# $1"
-  openssl s_client -connect $1:$_port  2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+    echo "# $1"
+    openssl s_client -connect $_host 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
 
 }
 
