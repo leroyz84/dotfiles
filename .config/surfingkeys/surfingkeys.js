@@ -19,6 +19,9 @@ api.unmap('<Ctrl-j>');
 
 // Ctrl I is annoying
 api.unmap('<Ctrl-i>');
+
+// Ctrl A got introduced and removed the clearing for input forms for me
+api.unmap('<Ctrl-a>');
 //
 //show mode
 //u
