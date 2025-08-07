@@ -12,6 +12,14 @@ bindswitch tablet:on exec squeekboard &
 bindswitch tablet:off exec pkill -f squeekboard
 focus_follows_mouse no
 
+
+set $workroom main
+bindsym $mod+F1 set $$workroom A; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+F2 set $$workroom B; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+F3 set $$workroom C; exec echo $$workroom > /var/tmp/workroom
+bindsym $mod+space exec --no-startup-id ~/.config/sway/scripts/workroom
+
+
 # workspaces
 set $ws1 1
 set $ws2 2
@@ -25,23 +33,23 @@ set $ws9 9
 set $ws10 10
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
+bindsym $mod+1 workspace $$workroom_$ws1
+bindsym $mod+2 workspace $$workroom_$ws2
+bindsym $mod+3 workspace $$workroom_$ws3
+bindsym $mod+4 workspace $$workroom_$ws4
+bindsym $mod+5 workspace $$workroom_$ws5
+bindsym $mod+6 workspace $$workroom_$ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1 ; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2 ; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3 ; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4 ; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5 ; workspace $ws5
+bindsym $mod+Shift+1 move container to workspace $$workroom_$ws1 ; workspace $$workroom_$ws1
+bindsym $mod+Shift+2 move container to workspace $$workroom_$ws2 ; workspace $$workroom_$ws2
+bindsym $mod+Shift+3 move container to workspace $$workroom_$ws3 ; workspace $$workroom_$ws3
+bindsym $mod+Shift+4 move container to workspace $$workroom_$ws4 ; workspace $$workroom_$ws4
+bindsym $mod+Shift+5 move container to workspace $$workroom_$ws5 ; workspace $$workroom_$ws5
 bindsym $mod+Shift+6 move container to workspace $ws6 ; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7 ; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8 ; workspace $ws8
@@ -123,6 +131,8 @@ for_window [app_id="org.keepassxc.KeePassXC"]  move container to workspace KP
 #bindsym $mod+F12 workspace KP
 
 for_window [app_id="mail"]  move container to workspace email
+for_window [app_id="jira"]  move container to workspace jira
+for_window [app_id="gitlab"]  move container to workspace gitlab
 for_window [app_id="chrome-music.youtube.com__-Default"]  move container to workspace music
 #Ibindsym $mod+F11 workspace email
 
@@ -230,6 +240,8 @@ mode "Application Launcher" {
     #bindsym m exec $terminal -t mutt -e "mutt"; mode "default"
     bindsym s exec slack; [class="Slack"] focus; mode "default"
     bindsym t exec ~/.local/bin/timer ;mode "default"
+    bindsym g workspace gitlab; exec swaymsg \[app_id="gitlab"\] focus || exec chromium --app-id="gitlab" --new-window --app="https://gitlab.bcnexxt.com/"; mode "default"
+    bindsym j workspace jira; exec swaymsg \[app_id="jira"\] focus || exec chromium --app-id="jira" --new-window --app="https://jira.bcnexxt.com/"; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

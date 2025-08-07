@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# this finds the workrooms if set e.g. nieuw_1
+#
+# Allows for custom input
+swaymsg -t get_tree | jq -r '
+  .nodes
+  | .[]
+  | .nodes
+  | .[]
+  | select(.name != null and (.name | contains("_")))
+  | (.name | split("_") | .[0])
+  | select(length > 0)
+' | sort | uniq | \
+     wofi -d -p "Select workroom" -H 400 -W 800 -d -i | {
+        read -r input
+        swaymsg "set \$workroom ${input}"
+        echo $input > /var/tmp/workroom
+
+        # force reload py3status
+        killall -USR1 py3status
+    }

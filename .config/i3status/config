@@ -18,7 +18,7 @@ general {
 }
 
 #order += "external_script timew"
-#order += "external_script workroom"
+order += "external_script workroom"
 order += "external_script ident"
 order += "external_script cpu_mode"
 order += "arch_updates"
