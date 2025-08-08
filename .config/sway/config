@@ -419,6 +419,6 @@ input "type:keyboard" {
 }
 
 input type:touchpad {
-    tap disabled
+    tap enabled
     natural_scroll enabled
 }
