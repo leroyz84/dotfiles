@@ -112,7 +112,7 @@ set $terminal foot
 #include ~/.config/i3/conf.d/startup/config
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/bin/dunst
-#exec --no-startup-id /usr/bin/rot8
+exec --no-startup-id /sbin/wlsunset
 
 # foot has sometimes issues with not escapign control seq, making tpyo's
 # exec --no-startup-id foot --server
