@@ -20,7 +20,7 @@ general {
 #order += "external_script timew"
 order += "external_script workroom"
 order += "external_script ident"
-order += "external_script cpu_mode"
+#order += "external_script cpu_mode"
 order += "arch_updates"
 order += "wireless _first_"
 order += "ethernet _first_"
@@ -82,7 +82,7 @@ path_exists WG1 {
 
 battery_level {
 
-    format = "BAT {percent}%{time_remaining}"
+    format = "{percent}%{time_remaining}"
     hide_seconds = true
     integer_battery_capacity = true
     color_good = '#00CC00'
