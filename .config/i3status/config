@@ -29,14 +29,14 @@ order += "path_exists WG0"
 #order += "path_exists WG1"
 order += "battery_level"
 order += "disk /"
-order += "load"
-order += "memory"
+#order += "load"
+#order += "memory"
 #order += "volume master"
 #order += "group frames"
 
 external_script ident {
     script_path = "export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket; ssh-add -l | grep -v 'no ident' | wc -l"
-    format = "<span foreground='#999999'> identitities {output}</span>"
+    format = "<span foreground='#999999'>ids: {output}</span>"
     on_click 1 = "export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.socket; ssh-add -L | grep -v leroy | ssh-add -d -"
 }
 
@@ -44,7 +44,7 @@ external_script ident {
 order += "tztime local"
 
 arch_updates {
-	format = "{pacman} updates available"
+	format = "{pacman} updates"
         hide_if_zero = true
 }
 
@@ -107,7 +107,7 @@ external_script cpu_mode {
 }
 
 external_script workroom {
-    format = "ROOM {output}"
+    format = "<span foreground='#d703fc'>{output}</span>"
     script_path = "head -1 /var/tmp/workroom || M "
 }
 
