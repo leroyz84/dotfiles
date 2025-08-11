@@ -10,6 +10,7 @@ bindswitch --locked lid:on  output eDP-1 disable
 bindswitch --locked lid:off output eDP-1 enable
 bindswitch tablet:on exec squeekboard &
 bindswitch tablet:off exec pkill -f squeekboard
+# don't let the mouse activate a window
 focus_follows_mouse no
 
 
@@ -17,7 +18,7 @@ set $workroom main
 bindsym $mod+F1 set $$workroom A; exec echo $$workroom > /var/tmp/workroom
 bindsym $mod+F2 set $$workroom B; exec echo $$workroom > /var/tmp/workroom
 bindsym $mod+F3 set $$workroom C; exec echo $$workroom > /var/tmp/workroom
-bindsym $mod+space exec --no-startup-id ~/.config/sway/scripts/workroom
+bindsym $mod+F4 exec --no-startup-id ~/.config/sway/scripts/workroom
 
 
 # workspaces
@@ -29,7 +30,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
-set $ws9 9
+set $ws9 music
 set $ws10 10
 
 # switch to workspace
@@ -56,10 +57,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8 ; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9 ; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 bindsym $mod+Shift+minus move container to workspace temp ; workspace temp
+# create a temp that is hidden on virtual?
 
+#Change screen
+bindsym $mod+bracketright move workspace to output right
+bindsym $mod+bracketleft move workspace to output left
 
-bindsym $mod+Shift+s move scratchpad
-bindsym $mod+s scratchpad show
+#bindsym $mod+Shift+s move scratchpad
+#bindsym $mod+s scratchpad show
 
 # class                 border  bground text    indicator child_border
 client.focused          #00BBDD #335577 #FFFFFF #CDCD00   #00BBDD
@@ -75,8 +80,8 @@ bar {
 
     bindcode 273 ContextMenu
     bindsym BTN_RIGHT ContextMenu
-mode dock
- position bottom
+    mode dock
+    position bottom
 
     status_command  py3status
     #status_command while date +'%d-%m-%Y %H:%M:%S %p'; do sleep 1; done
@@ -94,7 +99,7 @@ mode dock
     urgent_workspace   #2F343A #CB3244 #FFFFFF
     binding_mode       #2F343A #CA0EFF #FFFFFF
     }
-    font pango: DejaVu Sans Mono 9
+    font pango: DejaVu Sans Mono 10
 }
 
 
@@ -115,12 +120,12 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id /sbin/wlsunset
 
 # foot has sometimes issues with not escapign control seq, making tpyo's
-# exec --no-startup-id foot --server
+exec --no-startup-id foot --server
 
 ## start script
 exec_always --no-startup-id ~/.local/bin/startup.sh
 exec_always ~/.local/bin/monitor-layout
-exec_always rivalcfg -p 250 -s 2400
+#exec_always rivalcfg -p 250 -s 2400 # move to startup
 
 
 exec_always dbus-update-activation-environment
@@ -128,11 +133,12 @@ exec_always dbus-update-activation-environment
 for_window [app_id="_text_scratchpad"] floating enable
 
 for_window [app_id="org.keepassxc.KeePassXC"]  move container to workspace KP
-#bindsym $mod+F12 workspace KP
+#bindsym $mod+F12 workspace KP -> mod+o -> K
 
 for_window [app_id="mail"]  move container to workspace email
 for_window [app_id="jira"]  move container to workspace jira
 for_window [app_id="gitlab"]  move container to workspace gitlab
+for_window [app_id="chrome-music.youtube.com__-Default"]  move container to workspace music
 for_window [app_id="chrome-music.youtube.com__-Default"]  move container to workspace music
 #Ibindsym $mod+F11 workspace email
 
@@ -345,7 +351,7 @@ bindsym $mod+u layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -405,9 +411,6 @@ for_window [class="Galculator"] floating enable
 #Do not focus window on mouse hover
 #focus_follows_mouse no
 
-#Change screen
-bindsym $mod+bracketright move workspace to output right
-bindsym $mod+bracketleft move workspace to output left
 
 #Slack
 assign [class="Slack"] $ws7
