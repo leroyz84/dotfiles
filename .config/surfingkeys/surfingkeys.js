@@ -9,7 +9,6 @@ api.iunmap(":");
  // press comma twice to leave current input box.
 //api.imap(',,', "<Esc>");
 
-
 // don't use marks
 api.unmap('m');
 // I use history
@@ -21,7 +20,9 @@ api.unmap('<Ctrl-j>');
 api.unmap('<Ctrl-i>');
 
 // Ctrl A got introduced and removed the clearing for input forms for me
-api.unmap('<Ctrl-a>');
+api.map('<Ctrl-a>', '<Ctrl-a>');
+//api.iunmap('<Ctrl-a>');
+
 //
 //show mode
 //u
